@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd store1
-./bin/dingodb_server --role store --conf ./conf/store.yaml
+./bin/dingodb_server --role store --conf ./conf/store.yaml &
