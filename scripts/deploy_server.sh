@@ -7,6 +7,7 @@ if [[ ! -d "$mydir" ]]; then mydir="$PWD"; fi
 
 
 DEFINE_string role 'store' 'server role'
+DEFINE_integer server_num 1 'server number'
 DEFINE_boolean clean_db 1 'clean db'
 DEFINE_boolean clean_raft 1 'clean raft'
 DEFINE_boolean clean_log 0 'clean log'
@@ -25,8 +26,11 @@ if [ ! -d "$DIST_DIR" ]; then
   mkdir "$DIST_DIR"
 fi
 
-SERVER_NUM=1
-INSTANCE_START_ID=1000
+
+TMP_COORDINATOR_SERVICES=$HOME/tmp/coor_list
+SERVER_NUM=${FLAGS_server_num}
+COORDINATOR_INSTANCE_START_ID=220000
+STORE_INSTANCE_START_ID=330000
 SERVER_HOST=172.20.61.6
 SERVER_START_PORT=30000
 RAFT_HOST=172.20.61.6
@@ -53,6 +57,7 @@ function deploy_store() {
   instance_id=$6
   coor_srv_peers=$7
   coor_raft_peers=$8
+  coor_service_file=$9
 
   echo "server ${dstpath}"
 
@@ -81,6 +86,8 @@ function deploy_store() {
   if [ ! -d "$dstpath/data/${role}/db" ]; then
     mkdir $dstpath/data/${role}/db
   fi
+
+  cp ${coor_service_file} $dstpath/conf/coor_list
 
   cp $srcpath/build/bin/dingodb_server $dstpath/bin/
   if [ "${FLAGS_replace_conf}" == "0" ]; then
@@ -111,10 +118,15 @@ function deploy_store() {
 COOR_SRV_PEERS=""
 COOR_RAFT_PEERS=""
 
+echo "# dingo-store coordinators">${TMP_COORDINATOR_SERVICES}
+
 for ((i=1; i<=$SERVER_NUM; ++i)); do
     COOR_SRV_PEERS=${COOR_SRV_PEERS}","$SERVER_HOST":"`expr $COORDINATOR_SERVER_START_PORT + $i`
     COOR_RAFT_PEERS=${COOR_RAFT_PEERS}","$SERVER_HOST":"`expr $COORDINATOR_RAFT_START_PORT + $i`
+
+    echo $SERVER_HOST":"`expr $COORDINATOR_SERVER_START_PORT + $i` >> ${TMP_COORDINATOR_SERVICES}
 done
+
 COOR_SRV_PEERS=${COOR_SRV_PEERS:1}
 COOR_RAFT_PEERS=${COOR_RAFT_PEERS:1}
 
@@ -125,9 +137,9 @@ for ((i=1; i<=$SERVER_NUM; ++i)); do
   program_dir=$BASE_DIR/dist/${FLAGS_role}${i}
 
 if [ $FLAGS_role == "coordinator" ]; then
-  deploy_store ${FLAGS_role} $BASE_DIR $program_dir `expr $COORDINATOR_SERVER_START_PORT + $i` `expr $COORDINATOR_RAFT_START_PORT + $i` `expr $INSTANCE_START_ID + $i` ${COOR_SRV_PEERS} ${COOR_RAFT_PEERS}
+  deploy_store ${FLAGS_role} $BASE_DIR $program_dir `expr $COORDINATOR_SERVER_START_PORT + $i` `expr $COORDINATOR_RAFT_START_PORT + $i` `expr $COORDINATOR_INSTANCE_START_ID + $i` ${COOR_SRV_PEERS} ${COOR_RAFT_PEERS} ${TMP_COORDINATOR_SERVICES}
 else
-  deploy_store ${FLAGS_role} $BASE_DIR $program_dir `expr $SERVER_START_PORT + $i` `expr $RAFT_START_PORT + $i` `expr $INSTANCE_START_ID + $i` ${COOR_SRV_PEERS} ${COOR_RAFT_PEERS}
+  deploy_store ${FLAGS_role} $BASE_DIR $program_dir `expr $SERVER_START_PORT + $i` `expr $RAFT_START_PORT + $i` `expr $STORE_INSTANCE_START_ID + $i` ${COOR_SRV_PEERS} ${COOR_RAFT_PEERS} ${TMP_COORDINATOR_SERVICES}
 fi
 
 done
