@@ -1,0 +1,26 @@
+{
+    "env": {
+        "myDefaultIncludePath": [
+            "${workspaceFolder}/src"
+        ],
+        "myCompilerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/clang++-14"
+    },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/test/**",
+                "${workspaceFolder}/contrib/**",
+
+            ],
+            "defines": [],
+            "compilerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/clang++-14",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "/home/server/work/dingo-poc/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}

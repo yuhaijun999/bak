@@ -1,0 +1,358 @@
+{
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "lldb-test_rocks_engine 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/test_rocks_engine",
+            "args": [],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "gdb-test_rocks_engine 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/test_rocks_engine",
+            "args": [],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/server/app/gdb-12.1-python/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-test_scan 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/test_scan",
+            "args": [],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-dingodb_server-coordinator 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/coordinator1/bin/dingodb_server",
+            "args": [
+                "--role",
+                "coordinator",
+                "--conf",
+                "./conf/coordinator.yaml"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/dist/coordinator1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "gdb-dingodb_server-coordinator 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/coordinator1/bin/dingodb_server",
+            "args": [
+                "--role",
+                "coordinator",
+                "--conf",
+                "./conf/coordinator.yaml"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/dist/coordinator1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/server/app/gdb-12.1-python/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-dingodb_client_store 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/dingodb_client_store",
+            "args": [
+                "--addrs",
+                "172.20.61.6:30001",
+                "--raft_addrs",
+                "172.20.61.6:30101",
+                "--method",
+                "AddRegion"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "gdb-dingodb_client_store 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/dingodb_client_store",
+            "args": [
+                "--addrs",
+                "172.20.61.6:30001",
+                "--raft_addrs",
+                "172.20.61.6:30101",
+                "--method",
+                "AddRegion"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/server/app/gdb-12.1-python/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-dingodb_server-store 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/store1/bin/dingodb_server",
+            "args": [
+                "--role",
+                "store",
+                "--conf",
+                "./conf/store.yaml"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/dist/store1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "gdb-dingodb_server-store 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/store1/bin/dingodb_server",
+            "args": [
+                "--role",
+                "store",
+                "--conf",
+                "./conf/store.yaml"
+            ],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/dist/store1",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/server/app/gdb-12.1-python/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-test_pb 启动",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/test_pb",
+            "args": [],
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/build/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "lldb-dingodb_server-store-attach 启动",
+            "type": "lldb",
+            "request": "attach",
+            //"program": "${workspaceRoot}/dist/store1/bin/dingodb_server",
+            "args": [],
+            //"pid": "1105420", // 要Attach的进程ID 这个是OK的
+            "pid": "${command:pickProcess}",
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "/home/server/app/llvm-project-llvmorg-14.0.6/bin/lldb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "gdb-dingodb_server-store-attach 启动",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${workspaceRoot}/dist/store1/bin/dingodb_server",
+            "args": [],
+            "processId": "${command:pickProcess}",
+            //"processId":"670497", // 这个是OK的
+            "stopAtEntry": true,
+            //"cwd": "${fileDirname}",
+            "cwd": "${workspaceRoot}/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/server/app/gdb-12.1-python/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+    ]
+}
