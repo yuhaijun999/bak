@@ -30,7 +30,6 @@ function start_program() {
   nohup ./bin/dingodb_server --role ${role}  --conf ./conf/${role}.yaml --coor_url=file://./conf/coor_list 2>&1 >./log/out &
 }
 
-
 for ((i=1; i<=$SERVER_NUM; ++i)); do
   program_dir=$BASE_DIR/dist/${FLAGS_role}${i}
 

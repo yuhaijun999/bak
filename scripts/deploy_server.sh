@@ -26,8 +26,7 @@ if [ ! -d "$DIST_DIR" ]; then
   mkdir "$DIST_DIR"
 fi
 
-
-TMP_COORDINATOR_SERVICES=$HOME/tmp/coor_list
+TMP_COORDINATOR_SERVICES=$HOME/tmp/coor_list_`whoami`_`date +%s`
 SERVER_NUM=${FLAGS_server_num}
 COORDINATOR_INSTANCE_START_ID=220000
 STORE_INSTANCE_START_ID=330000
@@ -143,6 +142,10 @@ else
 fi
 
 done
+
+echo "unlink..."${TMP_COORDINATOR_SERVICES}
+
+unlink ${TMP_COORDINATOR_SERVICES}
 
 echo "Finish..."
 
