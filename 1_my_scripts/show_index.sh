@@ -1,6 +1,6 @@
 #!/bin/bash
 
-role=store
+role=index
 FLAGS_role="\-\-role $role"
 #echo "role: ${FLAGS_role}"
 
