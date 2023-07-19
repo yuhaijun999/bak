@@ -1,0 +1,14 @@
+./dingodb_client_coordinator --method=CreateIndex --name=test1 --vector_index_type=flat --dimension=1024 
+./dingodb_client_coordinator --method=CreateIndex --name=hnsw --vector_index_type=hnsw --max_elements=2000000 --dimension=1024 --efconstruction=40 --nlinks=32  --replica=1
+
+
+./dingodb_client_coordinator --method=GetIndexRange --id=60001
+./dingodb_client_coordinator --method=GetIndexRange --id=60002
+
+
+./dingodb_client_store --method=VectorGetMaxId --region_id=80001
+./dingodb_client_store --method=VectorGetMaxId --region_id=80003
+
+
+./dingodb_client_store  --method=VectorAddBatch --region_id=80001 --dimension=1024 --count=1000000  --step_count=1000  --vector_enable_scalar=false --start_id=0 --timeout_ms=1000000 --log_each_request=false --vector_index_add_cost_file="./flat-1000000.txt"
+./dingodb_client_store  --method=VectorAddBatch --region_id=80003 --dimension=1024 --count=1000000  --step_count=1000  --vector_enable_scalar=false --start_id=0 --timeout_ms=1000000 --log_each_request=false --vector_index_add_cost_file="./hnsw-1000000.txt"
