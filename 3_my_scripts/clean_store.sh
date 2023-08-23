@@ -30,10 +30,19 @@ function clean_store(){
             else
                 mkdir -p ${role_dir}/data/store/raft
             fi
+
+            if [ -d ${role_dir}/data/store/log ]; then
+                rm ${role_dir}/data/store/log/* -rf
+            else
+                mkdir -p ${role_dir}/data/store/log
+            fi
         else
             mkdir -p ${role_dir}/data/store
+            mkdir -p ${role_dir}/data/store/checkpoint
             mkdir -p ${role_dir}/data/store/db
+            mkdir -p ${role_dir}/data/store/idx
             mkdir -p ${role_dir}/data/store/raft
+            mkdir -p ${role_dir}/data/store/log
         fi
     else
         mkdir -p ${role_dir}/data
@@ -42,6 +51,7 @@ function clean_store(){
         mkdir -p ${role_dir}/data/store/db
         mkdir -p ${role_dir}/data/store/idx
         mkdir -p ${role_dir}/data/store/raft
+        mkdir -p ${role_dir}/data/store/log
     fi
 
 
