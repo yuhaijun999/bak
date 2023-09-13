@@ -1,7 +1,7 @@
 #!/bin/bash
 
 role=store
-FLAGS_role="\-role=$role"
+FLAGS_role="\-\-role $role"
 #echo "role: ${FLAGS_role}"
 
 user=`whoami`
@@ -13,8 +13,9 @@ echo $role "pids:" ${process_nos}
 if [ "$process_nos" != "" ]; then
     for process_no in ${process_nos}
     do
-    	echo "pid to kill: ${process_no}"
-    	kill -9 $process_no
+        echo "role : ${role} pid to show: ${process_no}"
+        ps -elf | grep  $process_no | grep -v grep
+        netstat -nap | grep $process_no
     done
 else
     echo "not exist ${role} process"
