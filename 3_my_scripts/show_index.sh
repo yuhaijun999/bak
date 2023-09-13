@@ -1,7 +1,7 @@
 #!/bin/bash
 
 role=index
-FLAGS_role="\-\-role $role"
+FLAGS_role="\-role=$role"
 #echo "role: ${FLAGS_role}"
 
 user=`whoami`
