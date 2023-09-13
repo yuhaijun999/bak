@@ -2,5 +2,5 @@
 
 
 cd ../build/bin/
-./dingodb_client  --method=GetStoreMetrics --id=60002 
+./dingodb_client  --method=GetStoreMetrics --id=60003 
 

@@ -2,4 +2,4 @@
 
 
 cd ../build/bin/
-./dingodb_client --method=VectorGetMinId --region_id=80003
+./dingodb_client --method=VectorGetMinId --region_id=80002

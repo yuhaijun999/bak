@@ -2,5 +2,5 @@
 
 
 cd ../build/bin/
-./dingodb_client  --method=GetIndexMetrics --id=60002 
+./dingodb_client  --method=GetIndexMetrics --id=60003
 

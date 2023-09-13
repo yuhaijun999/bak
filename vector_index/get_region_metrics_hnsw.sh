@@ -2,5 +2,5 @@
 
 
 cd ../build/bin/
-./dingodb_client  --method=VectorGetRegionMetrics --region_id=80003
+./dingodb_client  --method=VectorGetRegionMetrics --region_id=80002
 

@@ -2,4 +2,4 @@
 
 
 cd ../build/bin/
-./dingodb_client --method=GetIndexRange --id=60002
+./dingodb_client --method=GetIndexRange --id=60003
