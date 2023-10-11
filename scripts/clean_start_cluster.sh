@@ -1,6 +1,12 @@
 DEPLOY_PARAMETER=deploy_parameters
 DEPLOY_SERVER_NUM=1
 
+export TCMALLOC_SAMPLE_PARAMETER=524288
+echo "export TCMALLOC_SAMPLE_PARAMETER=524288, to enable heap profiler"
+
+ulimit -n 40960
+ulimit -u 40960
+
 if [ -n "$1" ]
 then
     DEPLOY_PARAMETER=$1
@@ -14,15 +20,15 @@ fi
 echo "DEPLOY_PARAMETER="${DEPLOY_PARAMETER}
 echo "DEPLOY_SERVER_NUM="${DEPLOY_SERVER_NUM}
 
-./stop.sh --role coordinator
-./stop.sh --role store
-./stop.sh --role index
-echo "stop all"
+./stop.sh --role coordinator --force=1
+./stop.sh --role store --force=1
+./stop.sh --role index --force=1
+echo "force stop all"
 sleep 1
 
-./deploy_server.sh --role coordinator --clean_db --clean_raft --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
-./deploy_server.sh --role store --clean_db --clean_raft --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
-./deploy_server.sh --role index --clean_db --clean_idx --clean_raft --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
+./deploy_server.sh --role coordinator --clean_all --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
+./deploy_server.sh --role store --clean_all --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
+./deploy_server.sh --role index --clean_all --server_num=${DEPLOY_SERVER_NUM} --parameters=${DEPLOY_PARAMETER}
 sleep 1
 echo "deploy all"
 
