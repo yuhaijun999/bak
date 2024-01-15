@@ -1,0 +1,17 @@
+test_coprocessor.cc
+./dingodb_unit_test --gtest_filter=CoprocessorTest.*
+
+test_scan_v2.cc
+./dingodb_unit_test --gtest_filter=ScanV2Test.*
+
+test_scan.cc
+./dingodb_unit_test --gtest_filter=ScanTest.*
+
+test_scan_with_coprocessor.cc
+./dingodb_unit_test --gtest_filter=ScanWithCoprocessor.*
+
+test_scan_with_coprocessor_v2.cc [not pass]
+./dingodb_unit_test --gtest_filter=ScanWithCoprocessorV2.*
+
+test_coprocessor_v2.cc. [not pass] [not pass]
+./dingodb_unit_test --gtest_filter=CoprocessorTestV2.*
