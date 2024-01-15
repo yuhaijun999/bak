@@ -10,8 +10,22 @@ test_scan.cc
 test_scan_with_coprocessor.cc
 ./dingodb_unit_test --gtest_filter=ScanWithCoprocessor.*
 
-test_scan_with_coprocessor_v2.cc [not pass]
+test_scan_with_coprocessor_v2.cc define  TEST_COPROCESSOR_V2_MOCK
 ./dingodb_unit_test --gtest_filter=ScanWithCoprocessorV2.*
 
-test_coprocessor_v2.cc. [not pass] [not pass]
+test_coprocessor_v2.cc. define  TEST_COPROCESSOR_V2_MOCK
 ./dingodb_unit_test --gtest_filter=CoprocessorTestV2.*
+
+test_coprocessor_utils.cc
+./dingodb_unit_test --gtest_filter=CoprocessorUtilsTest.*
+
+
+test_txn_scan.cc define  TEST_COPROCESSOR_V2_MOCK
+./dingodb_unit_test --gtest_filter=TxnScanTest.*
+
+
+test_rel_expr_helper.cc
+./dingodb_unit_test --gtest_filter=RelExprHelperTest.*
+
+test_coprocessor_aggregation_manager.cc
+./dingodb_unit_test --gtest_filter=CoprocessorAggregationManagerTest.*

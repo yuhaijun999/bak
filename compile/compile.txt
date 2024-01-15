@@ -1,0 +1,10 @@
+
+dingo-store
+cmake -DCMAKE_BUILD_TYPE=Debug -DTHIRD_PARTY_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF -DBUILD_INTEGRATION_TESTS=ON ..
+bear --append -- make -j 40
+
+
+faiss
+
+
+
