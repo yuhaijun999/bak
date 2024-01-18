@@ -1,0 +1,92 @@
+erver@dingo11 dist [wip-coprocessor-v2-test] $ sh create_table.sh
+E20240118 11:03:19.034621 3591838 dingodb_client.cc:1043] [main] coordinator url is empty, try to use file://./coor_list
+I20240118 11:03:19.034893 3591838 client_interation.cc:42] [Init] Init channel 172.30.14.11:32001
+I20240118 11:03:19.040508 3591842 naming_service_thread.cpp:203] brpc::policy::FileNamingService("./coor_list"): added 1
+I20240118 11:03:19.040589 3591838 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=0
+I20240118 11:03:19.040683 3591838 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=1
+I20240118 11:03:19.040752 3591838 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=3
+I20240118 11:03:19.052273 3591838 coordinator_interaction.h:217] [SendRequestByService] name_service_channel_ connect with meta server finished. response errcode: 0, leader_addr: 172.30.14.11:32001
+I20240118 11:03:19.052345 3591838 coordinator_client_function_meta.cc:318] [GetCreateTableIds] SendRequest status=OK
+I20240118 11:03:19.052368 3591838 coordinator_client_function_meta.cc:319] [GetCreateTableIds] response_info {
+  time_info {
+    total_rpc_time_ns: 1971792
+  }
+}
+table_ids {
+  entity_type: ENTITY_TYPE_TABLE
+  parent_entity_id: 2
+  entity_id: 60001
+}
+table_ids {
+  entity_type: ENTITY_TYPE_TABLE
+  parent_entity_id: 2
+  entity_id: 60002
+}
+I20240118 11:03:19.060295 3591838 coordinator_client_function_meta.cc:392] [SendCreateTable] table_id = 60001
+I20240118 11:03:19.060338 3591838 coordinator_client_function_meta.cc:401] [SendCreateTable] part_id = 60002
+I20240118 11:03:19.069487 3591838 coordinator_client_function_meta.cc:473] [SendCreateTable] SendRequest status=OK
+I20240118 11:03:19.069550 3591838 coordinator_client_function_meta.cc:474] [SendCreateTable] response_info {
+  time_info {
+    total_rpc_time_ns: 7575698
+  }
+}
+table_id {
+  entity_type: ENTITY_TYPE_TABLE
+  parent_entity_id: 2
+  entity_id: 60001
+}
+I20240118 11:03:19.069658 3591838 coordinator_client_function_meta.cc:476] [SendCreateTable] create table success, table_id==60001
+server@dingo11 dist [wip-coprocessor-v2-test] $
+
+
+
+server@dingo11 dist [wip-coprocessor-v2-test] $ sh get_table_range.sh
+E20240118 11:11:18.723699 3599370 dingodb_client.cc:1043] [main] coordinator url is empty, try to use file://./coor_list
+I20240118 11:11:18.723976 3599370 client_interation.cc:42] [Init] Init channel 172.30.14.11:32001
+I20240118 11:11:18.729811 3599376 naming_service_thread.cpp:203] brpc::policy::FileNamingService("./coor_list"): added 1
+I20240118 11:11:18.729898 3599370 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=0
+I20240118 11:11:18.730001 3599370 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=1
+I20240118 11:11:18.730068 3599370 coordinator_interaction.cc:65] [InitByNameService] Init channel by service_name file://./coor_list service_type=3
+I20240118 11:11:18.740088 3599370 coordinator_interaction.h:217] [SendRequestByService] name_service_channel_ connect with meta server finished. response errcode: 0, leader_addr: 172.30.14.11:32001
+I20240118 11:11:18.740151 3599370 coordinator_client_function_meta.cc:259] [SendGetTableRange] SendRequest status=OK
+I20240118 11:11:18.740173 3599370 coordinator_client_function_meta.cc:260] [SendGetTableRange] response_info {
+  time_info {
+    total_rpc_time_ns: 659870
+  }
+}
+table_range {
+  range_distribution {
+    id {
+      entity_type: ENTITY_TYPE_PART
+      parent_entity_id: 60002
+      entity_id: 80001
+    }
+    range {
+      start_key: "w\000\000\000\000\000\000\352b"
+      end_key: "w\000\000\000\000\000\000\352c"
+    }
+    leader {
+      host: "172.30.14.11"
+      port: 30001
+    }
+    voters {
+      host: "172.30.14.11"
+      port: 30001
+    }
+    regionmap_epoch: 1001
+    storemap_epoch: 1002
+    region_epoch {
+      conf_version: 1
+      version: 1
+    }
+    status {
+      state: REGION_NORMAL
+      raft_status: REGION_RAFT_HEALTHY
+      replica_status: REPLICA_NORMAL
+      create_timestamp: 1705546999063
+      last_update_timestamp: 1705547439957
+    }
+  }
+}
+I20240118 11:11:18.748088 3599370 coordinator_client_function_meta.cc:263] [SendGetTableRange] region_id=[80001]range=[77000000000000ea62,77000000000000ea63] leader=[172.30.14.11:30001]
+server@dingo11 dist [wip-coprocessor-v2-test] $
