@@ -1,0 +1,172 @@
+{
+    "clangd.path": "/home/server/app/llvm-project-llvmorg-17.0.6/bin/clangd",
+    // 是否检查插件冲突
+    "clangd.detectExtensionConflicts": true,
+    //"C_Cpp.default.intelliSenseMode": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.intelliSenseEngineFallback": "disabled",
+    "C_Cpp.autocomplete": "disabled",
+    // 查找的头文件路径，每一项前缀 -I
+    "clangd.fallbackFlags": [
+        "-I${workspaceFolder}/include"
+    ],
+    "clangd.serverCompletionRanking": true,
+    // 粘贴时格式化文件
+    "editor.formatOnPaste": false,
+    // 保存时格式化文件
+    "editor.formatOnSave": true,
+    "clangd.arguments": [
+        // 让 Clangd 生成更详细的日志
+        "--log=verbose",
+        // 在后台自动分析文件(基于 complie_commands，我们用CMake生成)
+        "--background-index",
+        // 标记compelie_commands.json文件的目录位置
+        "--compile-commands-dir=build",
+        // 同时开启的任务数量
+        "-j=12",
+        // 全局补全(输入时弹出的建议将会提供 CMakeLists.txt 里配置的所有文件中可能的符号，会自动补充头文件)
+        "--all-scopes-completion",
+        // 更详细的补全内容
+        "--completion-style=detailed",
+        // Include what you use
+        "--header-insertion=iwyu",
+        // 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
+        "--header-insertion-decorators",
+        // pch优化的位置 disk memory
+        "--pch-storage=memory",
+        // 跨文件重命名变量
+        "--cross-file-rename",
+        "--enable-config",
+        // clang-format style to apply by default when no .clang-format file is found
+        "--fallback-style=google",
+        // 输出的 JSON 文件更美观
+        "--pretty",
+        "--query-driver=/home/server/app/llvm-project-llvmorg-17.0.6/bin/clang++",
+        // 启用 Clang-Tidy 以提供「静态检查」
+        "--clang-tidy",
+        // Clang-Tidy 静态检查的参数，指出按照哪些规则进行静态检查，详情见「与按照官方文档配置好的 VSCode 相比拥有的优势」
+        // 参数后部分的*表示通配符
+        // 在参数前加入-，如-modernize-use-trailing-return-type，将会禁用某一规则
+        "--clang-tidy-checks=cppcoreguidelines-*,performance-*,bugprone-*,portability-*,modernize-*,google-*",
+        // 启用这项时，补全函数时，将会给参数提供占位符，键入后按 Tab 可以切换到下一占位符，乃至函数末
+        // 我选择启用
+        "--function-arg-placeholders=true",
+        // "--path-mappings=/data1/server/work/dingo-store=/home/server/work/dingo-store",
+        //"--path-mappings=/home/server/work/dingo-store=/data1/server/work/dingo-store",
+    ],
+    // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    /********
+   * LLDB *
+   ********/
+    //LLDB 指令自动补全
+    "lldb.commandCompletions": true,
+    //LLDB 指针显示解引用内容
+    "lldb.dereferencePointers": true,
+    //LLDB 鼠标悬停在变量上时预览变量值
+    "lldb.evaluateForHovers": true,
+    //LLDB 监视表达式的默认类型
+    "lldb.launch.expressions": "simple",
+    //LLDB 不显示汇编代码
+    "lldb.showDisassembly": "never",
+    //LLDB 生成更详细的日志
+    "lldb.verboseLogging": true,
+    "clangd.checkUpdates": false,
+    "cmakeFormat.exePath": "/usr/local/bin/cmake-format",
+    "google-translate.firstLanguage": "en",
+    "google-translate.maxSizeOfResult": 200,
+    "cmake.configureOnEdit": false,
+    "files.trimTrailingWhitespace": true,
+    "clang-tidy.blacklist": [],
+    "cpp-check-lint.cppcheck.--std_c++=": "c++17",
+    "cpp-check-lint.cppcheck.--std_c=": "c11",
+    "cSpell.words": [
+        "alsologtostderr",
+        "BOOLLIST",
+        "braft",
+        "brpc",
+        "bthread",
+        "butil",
+        "COMPAREANDSET",
+        "consine",
+        "COUNTWITHNULL",
+        "cppcheck",
+        "dingodb",
+        "distrib",
+        "DOUBLELIST",
+        "EBRAFT",
+        "efconstruction",
+        "EILLEGAL",
+        "EINTERNAL",
+        "EKEY",
+        "ENOT",
+        "EREGION",
+        "ESCAN",
+        "ESTORE",
+        "EVECTOR",
+        "faiss",
+        "FLOATLIST",
+        "fvec",
+        "glog",
+        "Hnsw",
+        "hnswlib",
+        "indexs",
+        "INTEGERLIST",
+        "IVFPQ",
+        "labeltype",
+        "Libexpr",
+        "lims",
+        "LONGLIST",
+        "myequalkey",
+        "ncentroids",
+        "nlinks",
+        "normlize",
+        "NOTLEADER",
+        "nprobe",
+        "nsubvector",
+        "numpy",
+        "PARAMTETERS",
+        "Pinnable",
+        "prewrite",
+        "quantizer",
+        "restruct",
+        "rocksdb",
+        "Scalardata",
+        "subvector",
+        "topk",
+        "topks",
+        "topn",
+        "utxn"
+    ],
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.preferredDarkColorTheme": "Default Dark+",
+    "workbench.preferredHighContrastColorTheme": "Default Dark+",
+    "cpplint.cpplintPath": "/home/server/.local/bin/cpplint",
+    "cpplint.lineLength": 120,
+    "cpp-check-lint.cpplint.--exclude=": [],
+    "C_Cpp.intelliSenseMemoryLimit": 16384,
+    "typescript.tsserver.maxTsServerMemory": 30720,
+    "files.maxMemoryForLargeFilesMB": 40960,
+    "lldb.dbgconfig": {},
+    "lldb.rpcServer": {},
+    "search.followSymlinks": false,
+    "editor.accessibilityPageSize": 10,
+    "editor.fontSize": 14,
+    /* cppcheck配置 */
+    "cpp-check-lint.--enable": true, //启用插件
+    "cpp-check-lint.cppcheck.--executable": "/home/server/app/cppcheck-2.10/bin/cppcheck", //cppcheck路径
+    "cpp-check-lint.cppcheck.--inline-suppr": false, //取消内联
+    "cpp-check-lint.cppcheck.--language=": "c++", //使用c++语言进行检查
+    "cpp-check-lint.cppcheck.--onsave": false, //在文件保存时立刻检查该文件
+    "cpp-check-lint.cppcheck.--quick_fix": false,
+    "cpp-check-lint.cpplint.--enable": false,
+    "clang-format.fallbackStyle": "Google",
+    "editor.largeFileOptimizations": false,
+    "c-cpp-flylint.flexelint.enable": false,
+    //关闭无用的cpplint
+    // "cpp-check-lint.cppcheck.--addon=": [  //暂时不开启插件
+    //     "misra.py"
+    // ],
+    //"--path-mappings": "/data1/server/work/dingo-store=/home/server/work/dingo-store",
+}
