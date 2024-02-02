@@ -1,0 +1,115 @@
+http://172.30.14.11:30001/vars
+http://172.30.14.11:30002/vars
+http://172.30.14.11:30003/vars
+
+v1:
+1.ScanManager
+# 正在运行 scan v1 的数量
+bvar::Adder<uint64_t> bvar_scan_v1_object_running_num_;
+bvar_scan_v1_object_running_num_("dingo_scan_v1_object_running_num")
+
+# 一共运行scan v1 的总数量 只增不减
+bvar::Adder<uint64_t> bvar_scan_v1_object_total_num_;
+bvar_scan_v1_object_total_num_("dingo_scan_v1_object_total_num")
+
+2.ScanContextV1
+# scan v1 latency
+static bvar::LatencyRecorder scan_context_v1_latency;
+bvar::LatencyRecorder ScanContextV1::scan_context_v1_latency("dingo_scan_context_v1_latency");
+
+3.Coprocessor
+static bvar::Adder<uint64_t> bvar_coprocessor_v1_object_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v1_object_total_num;
+static bvar::LatencyRecorder coprocessor_v1_latency;
+static bvar::Adder<uint64_t> bvar_coprocessor_v1_execute_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v1_execute_total_num;
+static bvar::LatencyRecorder coprocessor_v1_execute_latency;
+
+#正在运行 coprocessor v1 的数量
+bvar::Adder<uint64_t>
+Coprocessor::bvar_coprocessor_v1_object_running_num("dingo_coprocessor_v1_object_running_num");
+#一共运行 coprocessor v1 的数量
+bvar::Adder<uint64_t>
+Coprocessor::bvar_coprocessor_v1_object_total_num("dingo_coprocessor_v1_object_total_num");
+# coprocessor_v1_latency
+bvarar::LatencyRecorder
+Coprocessor::coprocessor_v1_latency("dingo_coprocessor_v1_latency");
+bvar::Adder<uint64_t>
+Coprocessor::bvar_coprocessor_v1_execute_running_num("dingo_coprocessor_v1_execute_running_num");
+bvar::Adder<uint64_t>
+Coprocessor::bvar_coprocessor_v1_execute_total_num("dingo_coprocessor_v1_execute_total_num");
+bvar::LatencyRecorder
+Coprocessor::coprocessor_v1_execute_latency("dingo_coprocessor_v1_execute_latency");
+
+v2:
+1.ScanManagerV2
+# 正在运行 scan v2 的数量
+bvar::Adder<uint64_t> bvar_scan_v2_object_running_num_;
+bvar_scan_v2_object_running_num_("dingo_scan_v2_object_running_num")
+
+
+# 一共运行scan v2 的总数量 只增不减
+bvar_scan_v2_object_total_num_::Adder<uint64_t> bvar_scan_v2_object_total_num_;
+bvar_scan_v2_object_total_num_("dingo_scan_v2_object_total_num")
+
+2.ScanContextV2
+# scan v2 latency
+static bvar::LatencyRecorder scan_context_v2_latency;
+bvar::LatencyRecorder ScanContextV2::scan_context_v2_latency("dingo_scan_context_v2_latency");
+
+3.CoprocessorV2
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_object_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_object_total_num;
+static bvar::LatencyRecorder coprocessor_v2_latency;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_execute_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_execute_total_num;
+static bvar::LatencyRecorder coprocessor_v2_execute_latency;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_execute_txn_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_execute_txn_total_num;
+static bvar::LatencyRecorder coprocessor_v2_execute_txn_latency;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_filter_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_filter_total_num;
+static bvar::LatencyRecorder coprocessor_v2_filter_latency;
+
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_object_running_num("dingo_coprocessor_v2_object_running_num");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_object_total_num("dingo_coprocessor_v2_object_total_num");
+bvar::LatencyRecorder
+CoprocessorV2::coprocessor_v2_latency("dingo_coprocessor_v2_latency");
+bvar::Adder<uint64_t> CoprocessorV2::bvar_coprocessor_v2_execute_running_num(
+        "dingo_coprocessor_v2_execute_running_num");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_execute_total_num("dingo_coprocessor_v2_execute_total_num");
+bvar::LatencyRecorder
+CoprocessorV2::coprocessor_v2_execute_latency("dingo_coprocessor_v2_execute_latency");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_execute_txn_running_num(
+        "dingo_coprocessor_v2_execute_txn_running_num");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_execute_txn_total_num(
+        "dingo_coprocessor_v2_execute_txn_total_num");
+bvar::LatencyRecorder
+CoprocessorV2::coprocessor_v2_execute_txn_latency("dingo_coprocessor_v2_execute_txn_latency");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_filter_running_num("dingo_coprocessor_v2_filter_running_num");
+bvar::Adder<uint64_t>
+CoprocessorV2::bvar_coprocessor_v2_filter_total_num("dingo_coprocessor_v2_filter_total_num");
+bvar::LatencyRecorder
+CoprocessorV2::coprocessor_v2_filter_latency("dingo_coprocessor_v2_filter_latency");
+
+
+
+
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_filter_scalar_running_num;
+static bvar::Adder<uint64_t> bvar_coprocessor_v2_filter_scalar_total_num;
+static bvar::LatencyRecorder coprocessor_v2_filter_scalar_latency;
+
+bvar::Adder<uint64_t>
+CoprocessorScalar::bvar_coprocessor_v2_filter_scalar_running_num(
+        "dingo_coprocessor_v2_filter_scalar_running_num");
+bvar::Adder<uint64_t>
+CoprocessorScalar::bvar_coprocessor_v2_filter_scalar_total_num(
+        "dingo_coprocessor_v2_filter_scalar_total_num");
+bvar::LatencyRecorder CoprocessorScalar::coprocessor_v2_filter_scalar_latency(
+        "dingo_coprocessor_v2_filter_scalar_latency");
