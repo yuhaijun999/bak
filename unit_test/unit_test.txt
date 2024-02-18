@@ -29,3 +29,7 @@ test_rel_expr_helper.cc
 
 test_coprocessor_aggregation_manager.cc
 ./dingodb_unit_test --gtest_filter=CoprocessorAggregationManagerTest.*
+
+
+test_vector_index_flat.cc
+./dingodb_unit_test --gtest_filter=VectorIndexFlatTest.*
