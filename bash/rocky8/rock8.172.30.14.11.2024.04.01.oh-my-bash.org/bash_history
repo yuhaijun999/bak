@@ -1,0 +1,1000 @@
+ls
+git status 
+git icdiff 
+git add .
+git commit -am "skip bytes copy"
+git push 
+ls
+rg "copu"
+rg "copy"
+git status 
+git restore ./test/general.h 
+git status 
+git add .
+git commit -am "update code"
+git push 
+git status 
+ls
+cd ~
+ls
+cd work/
+ls
+rm dingo.zip  -rf
+ls
+rm dingo.bak/ -rf
+ls
+mv dingo dingo.bak
+ls
+cat git.txt 
+axel -n 10 https://work.dingodb.top/dingo.zip
+ls
+unzip -d dingo dingo.zip 
+ls
+cd dingo
+l
+ls
+mkdir log
+ls
+cd conf/
+ls
+cp -a ~/work/dingo.bak/conf/application-proxy-dev.yaml ./
+ls
+cp -a ~/work/dingo.bak/conf/executor.yaml ./
+cp -a ~/work/dingo.bak/conf/logback-executor.xml ./
+ls
+cd ..
+ls
+cd libs/
+ls
+cat ~/work/git.txt 
+java -cp dingo-mysql-init-all.jar io.dingodb.mysql.MysqlInit 172.30.14.11:32001
+ls
+cd ..
+ls
+cd bin/
+ls
+sh start-executor.sh 
+sh start-proxy.sh 
+jps
+jps -l
+ls
+cd ..
+ls
+cd log/
+ls
+tail -f proxy.out 
+jps
+jps -l
+kill -9 3744688 3744850
+jps
+ls
+cd
+ls
+cd source/
+ls
+cd flatbuffers-24.3.6/
+ls
+rg "CreateVector"
+rg "CreateVector" -g "*.h"
+rg "CreateVector" -g "*.cpp"
+cd ~/source/flatbuffers-24.3.6
+vim samples/sample_binary.cpp +42
+cd ~/work/dingo-store/dist
+cd ..
+ls
+git status 
+git fetch --all 
+ls
+cd dist
+ls
+sh show.sh 
+sh clean.sh 
+sh start.sh 
+sh show,s
+sh show.sh 
+ls
+cd index1/
+ls
+cd log/
+ls
+vim index.ERROR 
+ls
+cd ..
+ls
+cd ..
+ls
+cd index2/
+ls
+cd log/
+ls
+vim index.ERROR 
+ls
+cd ..
+ls
+cd ..
+ls
+cd index3/
+ls
+cd log/
+ls
+vim index.ERROR 
+ls
+cd ~/work/dingo/log
+ls
+cd ..
+ls
+cd ..
+ls
+cat git.txt 
+mysql -h 172.30.14.11 -P 3307 -u root -p
+cat git.txt 
+mysql -h 172.30.14.11 -P 3307 -u root -p
+cd ~/work/dingo/log
+ls
+tail -f executor.log 
+ls
+cd ..
+ls
+cd ..
+ls
+cd dingo-store/
+ls
+rg "1024"
+ls
+cd src/
+ls
+rg "1024"
+rg -w "1024"
+rg -w "exceed"
+emacs
+exit
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=34059 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46369 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=39873 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=35857 
+bear --append -- make -j 
+ls
+cd build/
+ls
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=35971 
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=39763 
+ls
+rm * -rf
+cat ../../README.txt 
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug ..
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45141 
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45571 
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33669 
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33669 
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=39111 
+bear --append -- make -j 
+./main  all 100 10 string
+./main  all 100 10 bytes
+bear --append -- make -j 
+clear
+ls
+bear --append -- make -j 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46143 
+bear --append -- make -j 
+./main  all 100 10 bytes
+./main  all 100 10 string
+./main  all 100 10 bytes
+ls
+./main  all 100 10 bytes
+ls
+rm * -rf
+cmake ..
+bear --append -- make -j 
+./main  all 100 10 bytes
+./main  all 100 10 string
+./main  all 100 10 int
+./main  all 100 10 float
+./main  all 100 10 long
+./main  all 100 10 double
+./main  all 100 10 string
+./main  all 100 10 bytes
+./main  all 1000 10 bytes
+./main  all 10000 10 bytes
+./main  all 10000 1 bytes
+./main  all 10000 10 bytes
+./main  all 10000 10 bool
+./main  all 10000 10 int
+./main  all 10000 10 long
+./main  all 10000 10 float
+./main  all 10000 10 double
+./main  all 10000 10 string
+./main  all 10000 10 bytes
+./main  all 10000 10 all
+bear --append -- make -j 
+./main  all 10000 10 int
+bear --append -- make -j 
+./main  all 10000 10 int
+bear --append -- make -j 
+./main  all 10000 10 int
+bear --append -- make -j 
+./main  all 10000 10 int
+./main  all 10000 10 bool
+./main  all 10000 10 all
+bear --append -- make -j 
+./main  all 10000 10 all
+clear
+ls
+rm * -rf
+cmake ..
+bear --append -- make -j 
+ls
+./main all 1000 10 bool
+./main all 1000 10 int
+./main all 1000 10 long
+./main all 1000 10 float
+./main all 1000 10 double
+./main all 1000 10 string
+./main all 1000 10 bytes
+./main all 1000 10 all
+./main all 1000 10 bool int 
+./main all 1000 10 bool int  string
+./main all 1000 10 
+./main all 10000 1 all
+./main all 10000 10 all
+./main fbs 10000 10 all
+./main pb 10000 10 all
+./main pb 10000 1 all
+./main all 1000000 1 all
+./main all 100000 1 all
+./main all 1000000 1 all
+ls
+cd build/
+ls
+bear --append -- make -j 
+ls
+tmux ls
+vim .tmux.conf 
+tmux
+ls
+tmux rename-window test
+ls
+tmux new-window -n store
+tmux detach-client 
+tmux detach
+tmux list-sessions 
+tmux rename-window store
+ls
+exit
+tmux select-pane 
+tmux select-pane -U
+iostat 
+iostat -s 1
+tmux split-window h
+tmux split-window -h
+procs 
+ls
+source /opt/intel/oneapi/setvars.sh
+ls
+./1-Flat 
+ls
+pwd
+source /opt/intel/oneapi/setvars.sh
+bear make -j 40
+bear make --j 40
+bear --append --  make -j 40
+cd ~
+tmux ls
+tmux kill-session test
+tmux kill-session -t test
+tmux list-keys 
+tmux inf
+tmux info
+tmux list-commands new
+ls
+tmux ls
+tmux --version
+tmux -version
+tmux version
+tmux -v
+tmux ls
+tmux help
+tmux list-commands 
+tmux list-commands  | grep "version"
+tmux list-commands  | grep "ver"
+tmux help
+tmux -V
+which tmux
+ps -el | grep tmux
+killall tmux 
+kill -9 9214
+killall tmux 
+ps -el | grep tmux
+ls
+cd tmp/
+ls
+cd ..
+ls
+tmux
+ls
+tmux ls
+tmux kill-session -t 13
+tmux ls
+ls
+ls -al
+cd .tmux
+ls
+ll
+cd plugins/
+ls
+ll
+cd ..
+ls
+cd ..
+ls
+ls -al
+vim .tmux.conf 
+cat .tmux.conf 
+cat .tmux.conf  | grep "utf"
+vim .tmux.conf 
+tmuxls
+tmux ls
+tmux new -s test
+tmux ls
+tmux attach-session -t tes
+tmux new -s test
+tmux attach-session -t test
+tmux ls
+tmux -V
+which tmux
+top
+less -SR
+exit
+l
+ls
+cd test/
+ls
+cd test_flatbuffers
+ls
+cat README.txt 
+tmux rename-window test
+tmux ks
+tmux ls
+ps -el | grep tmux-client-481896.log 
+ps -el | grep tmux
+kill -9 482528
+ps -el | grep tmux
+ls
+tmux ls
+ls
+ls -al
+mv .tmux.conf .tmux.conf.2024.0.318
+mv .tmux .tmux.2024.03.18
+mv .tmux.conf.2024.0.318 .tmux.conf.2024.03.18 
+ls
+ls -al
+ls
+ls -al
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+ls -al
+cp .tmux/.tmux.conf.local .
+ls-al
+ls -al
+vim .tmux.conf.local 
+tmux attach-session -t dingo-store
+cd ~
+tmux attach-session -t dingo-store-gateway
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33967 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=44655 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=43459 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38451 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=36067 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46593 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45197 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38207 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=43817 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=35533 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=37099 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=32849 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=44581 
+cd ~
+tmux attach-session -t test2
+tmux kill-session -t test2
+tmux ls
+tmux new -s test
+tmux rename-session -t test test2
+tmux ls
+tmux attach-session -t test2
+cd ~
+ls
+vim .tmux.conf.2024.03.18 
+ls
+tmux ls
+cd ~
+tmux ls
+tmux attach-session -t dingo-store
+cd ~/work/dingo-store/dist
+ls
+clear
+ls
+sh show.sh 
+sh clean.sh 
+ls
+clear
+ls
+l
+ls
+cd test/
+ls
+cd
+ls
+cd work/
+ls
+cd bak/
+ls
+cd compile/
+ls
+vim compile.txt 
+ls
+cd
+ls
+cd test/
+ls
+cp -a test_string_copy test_string_copy2
+cd test_string_copy2/
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+ls
+cd ..
+ls
+cp -a test_string_copy test_string_append_binary
+cd test_string_append_binary/
+ls
+vim main.cpp 
+sh build.sh 
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+cgdb ./main
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+cgdb ./main
+vim main.cpp 
+sh build.sh 
+./main 
+cgdb ./
+cgdb ./main
+cd ~
+ls
+cd work/
+ls
+cd bak/
+ls
+cd compile/
+ls
+vim compile.txt 
+git status 
+git restore compile.txt 
+ls
+git status 
+ls
+vim compile.txt 
+git status 
+cd ..
+ls
+git status 
+git icdiff dingo-store-one.sh
+!
+vim dingo-store-one.sh 
+git add .
+git commit -am "add compile.txt"
+git push 
+git pull
+git status 
+git push 
+git status 
+git log
+git rebase origin/main 
+git push 
+git status 
+git log
+ls
+cd /opt/rh/gcc-toolset-13/root/usr/include/c++/13/
+l
+ls
+pwd
+cd ..
+ls
+cd 13/
+s
+ls
+pwd
+cd ~
+tmux ls
+tmux attach-session -t dingo-store
+cd ~/work/dingo-store/dist
+ls
+cd test/
+ls
+cd test_shared_ptr/
+l
+ls
+vim main.cpp 
+vim --version
+ls
+sh build.sh 
+./main 
+vim -o2
+ls
+vim -o2 main.cpp  build.sh 
+vim -o5 main.cpp  build.sh 
+ifconfig 
+ls
+clear
+ls
+ifconfig 
+ls
+cear
+ls
+clear
+ls
+vim -O2
+ls
+vim main.cpp 
+fg
+ls
+ls -al
+fg
+fq
+fg
+ls
+vim main.cpp build.sh 
+fg
+vim build.sh 
+vim main.cpp 
+vim main.cpp build.sh 
+ls
+vim main.cpp build.sh 
+vim main.s
+vim main.cpp 
+sh build.sh 
+ls
+cd ..
+ls
+cp -a test_shared_ptr test_int64_reverse
+cd test_int64_reverse/
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+l
+ls
+cd ..
+ls
+cp -a test_string_copy test_vector_find
+cd test_vector_find/
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+cgdb ./main
+ls
+cd ..
+ls
+cd test_int64_reverse/
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+cd ~
+ls
+tmux attach-session -t dingo-store
+cd ~/work/dingo-store
+fzf
+git status 
+git restore ./src/*
+ls
+cd test/
+ls
+cd test_shared_ptr/
+ls
+touch file.txt
+vim 
+vim file.txt 
+ls
+cd ..
+ls
+cp -a test_string_copy test_string_asign
+cd test_string_asign/
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+cd ~
+fzf
+ls
+cd work/
+ls
+cd ..
+ls
+cd work/
+ls
+cd dingo-store/
+ls
+fzf
+export FZF_DEFAULT_COMMAND='rg'
+fzf
+rg
+rg "dfdf"
+export FZF_DEFAULT_COMMAND='rg'
+fzf
+cd ~/work/dingo-store/dist
+cd ~
+tmux ls
+tmux attach-session -t dingo-store
+cd ~
+cd ~/work/dingo-store
+cd ~/work/dingo-store/dist
+exit
+cd ~
+tmux attach-session -t dingo-store
+ls
+cd work/
+ls
+cd 
+ls
+cd test/
+ls
+cp -a test_string_asign test_string_iter
+cd test_string_iter/
+ls
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+ls
+cd ~
+tmux attach-session -t dingo-store
+cd ~/work/dingo-store
+ls
+clear
+ls
+cd test/
+ls
+cd test_shared_ptr/
+ls
+vim main,c
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+ls
+cd ..
+ls
+cp -a ~/work/dingo-store/src/example/sdk_transaction_example.cc ./
+ls
+vim sdk_transaction_example.cc 
+ls
+cd test/
+ls
+vim sdk_transaction_example.cc 
+cd ~
+tmux attach-session -t dingo-store
+cd ~/work/dingo-store
+ls
+cd test/
+ls
+clear
+ls
+vim sdk_transaction_example.cc 
+ls
+cp -a test_string_iter test_find_if
+cd test_find_if/
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+ls
+vim main.cpp 
+sh build.sh 
+vim main.cpp 
+sh build.sh 
+./main 
+cd test_find_if/
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+sh build.sh 
+./main 
+vim main.cpp 
+cd ~
+ls
+clear
+ls
+cd test/
+ls
+vim sdk_transaction_example.cc 
+ls -al
+vim sdk_transaction_example.cc 
+ls
+ls -al
+vim sdk_transaction_example.cc 
+ls
+cd test_functional/
+ls
+emacs main.cpp 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=37359 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=39373 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=42211 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=40271 
+tmux attach-session -t dingo-store
+;s
+cd test/
+s
+ls
+cp -a test_shared_ptr test_set_count
+cd test_set_count/
+ls
+vim main
+vim file.txt 
+rm file.txt 
+emacs main.cpp 
+ls
+cd tmp/
+ls
+git clone https://gitlab.com/yuhaijun999/Learn-Vim_zh_cn.git
+ls
+cd Learn-Vim_zh_cn/
+ls
+git status 
+git remote -v
+l
+ls
+cd
+ls
+cd work/
+ls
+cd bak/
+ls
+cd vscode_backup/
+ls
+cp -a ~/work/dingo-store/.vscode vscode.2024.3.28
+git status 
+cd ..
+ls
+git pull
+git status 
+git add .
+git commit -am "update vscode"
+git push 
+git log
+ls
+clear
+ls
+cd test/
+ls
+emacs sdk_transaction_example.cc 
+cd ~/work/dingo-store
+ls
+git remote -v
+cd..
+ls
+cd ..
+ls
+cd 
+ls
+cd tmp/
+ls
+cd Learn-Vim_zh_cn/
+ls
+git remote -v
+git remote add yuhaijun git@github.com:yuhaijun999/Learn-Vim_zh_cn.git
+git fetch --all 
+git push yuhaijun
+git status 
+cd ..
+ls
+cd ..
+ls
+cd work/
+ls
+cd /opt/rh/gcc-toolset-13/root/usr/include/c++/13
+ls
+pwd
+ls
+cd test/
+ls
+cp -a test_string_copy test_function
+mv test_function test_functional
+cd test_function
+cd test_functional/
+ls
+vim main.cpp 
+emacs main.cpp 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46113 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=36575 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=43411 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=41159 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=42783 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33889 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=37997 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=40651 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=40655 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38109 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=39529 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38877 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=37483 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38763 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38019 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=35643 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=42029 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=36955 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=42445 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=34441 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45223 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=41555 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=34973 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33817 
+cd ~
+tmux ls
+tmux attach-session -t dingo-store
+ls
+cd test/
+ls
+vim sdk_transaction_example.cc 
+cd ~/work/dingo-store
+ls
+cd test/
+ls
+cat sdk_transaction_example.cc 
+ls
+cd test/
+ls
+vim sdk_transaction_example.cc 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=33453 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46827 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=40773 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=44507 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45531 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=43213 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=46727 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45853 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=38991 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=41109 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=45997 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=41739 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=40581 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=35333 
+ /home/server/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb terminal-agent --connect=36367 
+ls
+tmux ls
+ls -al
+cd ~/work/dingo-store
