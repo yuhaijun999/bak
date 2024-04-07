@@ -33,3 +33,17 @@ test_coprocessor_aggregation_manager.cc
 
 test_vector_index_flat.cc
 ./dingodb_unit_test --gtest_filter=VectorIndexFlatTest.*
+
+
+test/unit_test/test_codec.cc
+./dingodb_unit_test --gtest_filter=CodecTest.*
+
+test/unit_test/test_coprocessor_utils.cc
+./dingodb_unit_test --gtest_filter=CoprocessorUtilsTest.*
+
+test/unit_test/test_vector_index_utils.cc
+./dingodb_unit_test --gtest_filter=VectorIndexUtilsTest.*
+
+test/unit_test/test_vector_reader.cc TEST_COPROCESSOR_V2_MOCK
+./dingodb_unit_test --gtest_filter=VectorIndexReaderTest.*
+
