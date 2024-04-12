@@ -1,0 +1,73 @@
+t|part_id|vector_id -> VectorWithId
+
+t|0|vector_id(100)|->  key1 -> value1
+t|0|vector_id(100)|->  key2 -> value2
+t|0|vector_id(101)|->  key1 -> value1
+t|0|vector_id(101)|->  key2 -> value2
+
+101 -> (key1=1,key2=2)
+
+key1|vector_id -> value1
+key1|1 -> 104
+key1|2 -> 102
+key1|3 -> 103
+
+
+vector_id1 key1
+vector_id1 key2
+vector_id2 key1
+vector_id2 key2
+
+
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+版本一：
+
+1.key list 全部key
+key = region_start_key[0] | region_part_id | 0 | vector_id   value =  ScalarKeyList.SerializeAsString()
+
+
+2.加速key
+key = region_start_key[0] | region_part_id | 1 | vector_id | key1   value = ScalarValue.SerializeAsString()
+
+3.其他key
+key = region_start_key[0] | region_part_id | 2 | vector_id   value = VectorScalardata.SerializeAsString()
+
+
+--------------------------------------------------------------------------------------------------------------------
+版本二：
+1.vector_id 索引  作用：scalar 遍历用查找到vector id 加速用
+key = region_start_key[0] | region_part_id | 0 | vector_id   value = [empty]
+
+
+2.加速key  作用：点查即可
+key = region_start_key[0] | region_part_id | 1 | vector_id | key1   value = ScalarValue.SerializeAsString()
+
+
+3.其他key
+key = region_start_key[0] | region_part_id | 2 | vector_id   value = VectorScalardata.SerializeAsString()
+
+----------------------------------------------------------------------------------------------------------------------
+圣智思路更改
+版本三：
+
+1.key list
+key = region_start_key[0] | region_part_id | 0 | vector_id   value =  ScalarKeyList.SerializeAsString()
+
+2. 加速key
+key = region_start_key[0] | region_part_id | 1 | key1 | vector_id(1)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key1 | vector_id(2)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key1 | vector_id(3)    value = ScalarValue.SerializeAsString()
+
+key = region_start_key[0] | region_part_id | 1 | key2 | vector_id(1)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key2 | vector_id(2)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key2 | vector_id(3)    value = ScalarValue.SerializeAsString()
+
+key = region_start_key[0] | region_part_id | 1 | key3 | vector_id(1)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key3 | vector_id(2)    value = ScalarValue.SerializeAsString()
+key = region_start_key[0] | region_part_id | 1 | key3 | vector_id(3)    value = ScalarValue.SerializeAsString()
+
+3.其他key (与版本二一致 不变)
+key = region_start_key[0] | region_part_id | 2 | vector_id   value = VectorScalardata.SerializeAsString()
