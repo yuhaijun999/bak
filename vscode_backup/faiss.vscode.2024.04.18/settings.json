@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "distrib",
+        "faiss",
+        "getmillisecs",
+        "indexs",
+        "lims",
+        "nremove",
+        "xids"
+    ],
+    "cpplint.cpplintPath": "~/.local/bin/cpplint",
+    "lldb.launch.env": {
+        "LD_LIBRARY_PATH": "/opt/intel/oneapi/mkl/2024.0/lib"
+    },
+
+}
