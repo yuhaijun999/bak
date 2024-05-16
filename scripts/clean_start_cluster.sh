@@ -40,7 +40,7 @@ sleep 1
 sleep 1
 echo "deploy all"
 
-./start_server.sh --role coordinator --server_num=${DEPLOY_SERVER_NUM}
+./start_server.sh --role coordinator --server_num=${DEPLOY_SERVER_NUM} 
 ./start_server.sh --role store --server_num=${DEPLOY_SERVER_NUM}
 ./start_server.sh --role index --server_num=${DEPLOY_SERVER_NUM}
 echo "start all"
