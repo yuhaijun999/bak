@@ -64,6 +64,34 @@ function deploy_store() {
         else
           echo "enable-lite is not set"
         fi
+        if [ ${DEFAULT_MIN_SYSTEM_DISK_CAPACITY_FREE_RATIO} ];then
+          echo "" >> $dstpath/conf/gflags.conf
+          echo "-min_system_disk_capacity_free_ratio=${DEFAULT_MIN_SYSTEM_DISK_CAPACITY_FREE_RATIO}" >> $dstpath/conf/gflags.conf
+          echo "-min_system_disk_capacity_free_ratio=${DEFAULT_MIN_SYSTEM_DISK_CAPACITY_FREE_RATIO}"
+        fi
+        if [ ${DEFAULT_MIN_SYSTEM_MEMORY_CAPACITY_FREE_RATIO} ];then
+          echo "" >> $dstpath/conf/gflags.conf
+          echo "-min_system_memory_capacity_free_ratio=${DEFAULT_MIN_SYSTEM_MEMORY_CAPACITY_FREE_RATIO}" >> $dstpath/conf/gflags.conf
+          echo "-min_system_memory_capacity_free_ratio=${DEFAULT_MIN_SYSTEM_MEMORY_CAPACITY_FREE_RATIO}"
+        fi
+        if [ -z "${DINGODB_ENABLE_ROCKSDB_SYNC}" ]; then
+          echo "DINGODB_ENABLE_ROCKSDB_SYNC is not set"
+        else
+          if [ "${DINGODB_ENABLE_ROCKSDB_SYNC}" = "1" ]; then
+            echo "" >> $dstpath/conf/gflags.conf
+            echo "-enable_rocksdb_sync=true" >> $dstpath/conf/gflags.conf
+            echo "enable_rocksdb_sync is set"
+          fi
+        fi
+        if [ -z "${DINGODB_ENABLE_REGION_SPLIT_AND_MERGE_FOR_LITE}" ]; then
+          echo "DINGODB_ENABLE_REGION_SPLIT_AND_MERGE_FOR_LITE is not set"
+        else
+          if [ "${DINGODB_ENABLE_REGION_SPLIT_AND_MERGE_FOR_LITE}" = "1" ]; then
+            echo "" >> $dstpath/conf/gflags.conf
+            echo "-enable_rocksdb_sync=true" >> $dstpath/conf/gflags.conf
+            echo "enable_rocksdb_sync is set"
+          fi
+        fi
     fi
   fi
 
@@ -167,4 +195,20 @@ function start_program() {
   echo "${root_dir}/bin/dingodb_server -role=${role}"
 
   nohup ${root_dir}/bin/dingodb_server -role=${role} 2>&1 >./log/out &
+}
+
+wait_for_process_exit() {
+  local pidKilled=$1
+  local begin=$(date +%s)
+  local end
+  while kill -0 $pidKilled > /dev/null 2>&1
+  do
+    echo -n "."
+    sleep 1;
+    end=$(date +%s)
+    if [ $((end-begin)) -gt 60  ];then
+      echo -e "\nTimeout"
+      break;
+    fi
+  done
 }
