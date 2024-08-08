@@ -5,7 +5,7 @@ FLAGS_role="\-role=$role"
 #echo "role: ${FLAGS_role}"
 
 user=`whoami`
-process_nos=`ps -fu ${user} | grep diskann_server | grep "${FLAGS_role}" | grep -v grep | awk '{print $2}' | xargs`
+process_nos=`ps -fu ${user} | grep dingodb_server | grep "${FLAGS_role}" | grep -v grep | awk '{print $2}' | xargs`
 
 echo "...................................................................................................................."
 echo $role "pids:" ${process_nos}

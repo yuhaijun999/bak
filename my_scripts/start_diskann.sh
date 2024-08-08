@@ -7,6 +7,6 @@ ulimit -n 40960
 ulimit -u 40960
 
 cd diskann1
-./bin/diskann_server -role=diskann &
+./bin/dingodb_server -role=diskann &
 cd ..
 
