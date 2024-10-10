@@ -1,0 +1,183 @@
+
+python sdk 只能使用 远程环境 (linux)
+1. 下载源码地址
+
+export http_proxy=http://172.20.3.88:1088
+export https_proxy=http://172.20.3.88:1088
+
+git clone https://github.com/dingodb/dingo-autotest-pysdk.git
+
+user:yuhaijun999@hotmail.com
+pwd: 
+
+或者使用这个
+git clone git@github.com:dingodb/dingo-autotest-pysdk.git
+
+2.下载Miniconda3
+
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+
+chmod 755 Miniconda3-py39_4.9.2-Linux-x86_64.sh 
+
+回车 【确定】  一直按回车
+
+输入 yes
+
+继续点击 Enter
+
+
+输入 yes，添加环境变量
+
+检查下 Miniconda3 是否加入了环境变量
+server@dingo11 ~ $ conda -V
+conda 4.9.2
+
+3.Miniconda3 源配置
+conda 配置镜像源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+
+在conda虚拟环境中配置pip 镜像源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+查看现有镜像源
+conda config --show channels
+
+删除镜像源
+conda config --remove channels https://pypi.douban.com/anaconda/cloud/pytorch/
+
+4. 激活 python3.9
+创建 python39 环境
+conda  create -n python39 python=3.9
+输入y 安装必要的软件
+
+激活python3.9
+conda activate python39
+
+
+conda deactivate命令来退出当前环境
+
+conda activate base 命令来激活默认环境
+
+5. 安装必须得插件
+conda activate python39
+pip install -r requirements.txt
+
+如果有冲突 先屏蔽
+(python39) server@dingo11 source $ grep '^#' requirements.txt 
+#grpc-gateway-protoc-gen-openapiv2==0.1.0
+#grpcio==1.56.0
+#grpcio-tools==1.30.0
+#pymilvus==1.1.2
+
+后续安装
+pip install grpc-gateway-protoc-gen-openapiv2==0.1.0
+pip install grpcio==1.56.0
+pip install grpcio-tools==1.30.0
+pip install pymilvus==1.1.2
+
+pip install git+https://github.com/dingodb/pydingo.git 
+
+## 执行这个也可以
+#pip install dingodb==0.0.18rc1  -i https://pypi.org/simple 
+#pip install dingodb==0.0.18rc3  -i https://pypi.org/simple
+
+pip install dingosdk==0.1rc18.post2 -i https://pypi.org/simple
+pip install dingodb==0.0.18rc4 -i https://pypi.org/simple
+
+6.pysdk 配置
+6.1 pytest.ini  更改
+;直接调用c++sdk
+去掉;
+修改成这个样子就可以了 
+addopts = -vs  -n 0 -m smoke   --dist=loadscope --dimension=20  --replicas=1 --index_types='flat' --not_clean_index --connect_net_type=pysdk  --co_ip_ports='172.30.14.11:32001' --metric_types='dotproduct,cosine'
+
+注意问题：
+--replicas=1 设置副本数为1
+--co_ip_ports='172.30.14.11:32001' 配置 IP和端口
+--metric_types='dotproduct,cosine' 目前有bug 不能生效
+
+6.2 pytest.ini  过滤 在 6.1基础上 增加
+
+类似这个样子
+;用例过滤的一些配置
+filter_case_ids=
+    pysdk_tests.test_vectors_scan.TestVectorScan:[75]
+	
+解释: test_vectors_scan 测试的文件  TestVectorScan 测试类  75 是指 data/vector_scan_op_data.csv 用例为75
+
+6.3 强制过滤向量数据类型
+修改 data/data_load.py
+metric_type_list = ["euclidean", "dotproduct", "cosine"] 修改为 你想要过滤的向量索引类型
+例如：
+metric_type_list = ["cosine"]  // 仅仅过滤 cosine 类型
+
+
+7. 查看报告
+server@dingo11 tmp $ tree -L 1 reports
+reports
+├── allure
+└── report.html
+
+1 directory, 1 file
+
+7.1 将报告report.html 拷贝到 windows 上 使用浏览器查看即可.
+    cd reports
+	sz report.html
+7.2 allure 生成报告 linux 查看
+    cd reports
+    allure serve ./allure/
+	# 固定IP 和 端口 
+	allure serve --host 172.30.14.11 --port 12345 ./allure 
+	
+8. 临时启用conda
+. "/home/server/miniconda3/etc/profile.d/conda.sh"
+conda activate python39
+
+
+----------------------------------------------------------------------------------
+其他：
+. "/home/server/miniconda3/etc/profile.d/conda.sh"
+conda activate python39
+
+https=13000,pysdk=32001,grpc=9999
+# https 13000
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 -m smoke --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=13000 --dist=loadscope --dimension=20  --connect_net_type=https
+
+# grpc=9999
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 -m smoke --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=9999 --dist=loadscope --dimension=20  --connect_net_type=grpc
+
+# pysdk=32001
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 -m smoke --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+
+
+index_types 类型配置
+--index_types='["ivf_flat","ivf_pq"]'
+
+运行指定模块/指定类
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_special_case.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_add.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_delete.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_scan.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_search.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_upsert.py  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+
+过滤 仅指定执行的case
+ 
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_add.py::TestVectorAdd --case_ids='[28]'  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_delete.py::TestVectorDelete --case_ids='[1]'  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_scan.py::TestVectorScan --case_ids='[75]'  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_search.py::TestSearch1 --case_ids='[3,4]'  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_upsert.py::TestVectorUpsert --case_ids='[3,4]'  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+
+过滤 单独指定某个case
+## 这个不生效
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_search.py::TestSearch1::test_vector_search_not_cross_part[pysdk-3-pysdk_part_prefix-flat-query_data0-2002-empty_result-False-1000-operand0-nan-cosine]  --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk
+
+## 这个可以
+~/miniconda3/envs/python39/bin/pytest  -vs -n 6 pysdk_tests/test_vectors_add.py::TestVectorAdd::test_vector_add_auto_id[pysdk-1-pysdk_part_prefix-flat-insert_data0-3000-cosine]   --html=../reports/report.html --alluredir=../reports/allure --self-contained-html --ip=172.30.14.11 --port=32001 --dist=loadscope --dimension=20  --connect_net_type=pysdk  --metric_types='dotproduct,euclidean,cosine'
+
+
+allure serve --port 12345 ./allure
+allure serve --host 172.30.14.11 --port 12345 ./allure
