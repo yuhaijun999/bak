@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="CKsTaNWD0P1iZ0fZwkxA" name="分布式文件系统">
-        <mxGraphModel dx="1572" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1572" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -95,71 +95,71 @@
         </mxGraphModel>
     </diagram>
     <diagram name="分布式一致性哈希" id="xVP4CoCDNm6S8e8Iq7-a">
-        <mxGraphModel dx="1572" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1572" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="fLAg-gxhZwFW8NkgzY5_-0"/>
                 <mxCell id="fLAg-gxhZwFW8NkgzY5_-1" parent="fLAg-gxhZwFW8NkgzY5_-0"/>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-0" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="340" y="260" width="280" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="330" y="390" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-2" value="C" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-2" value="C" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="610" y="390" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-3" value="D" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-3" value="D" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="470" y="530" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-4" value="B" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-4" value="B" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="470" y="250" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-6" value="A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-6" value="A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="310" y="385" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-7" value="E" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-7" value="E" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="565" y="490" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-10" value="新加入节点" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-10" value="新加入节点" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="590" y="500" width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="mjiwSMrNtu6T7SvDcX1x-11" value="影响节点" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="fLAg-gxhZwFW8NkgzY5_-1">
+                <mxCell id="mjiwSMrNtu6T7SvDcX1x-11" value="影响节点" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="fLAg-gxhZwFW8NkgzY5_-1" vertex="1">
                     <mxGeometry x="430" y="550" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram name="分布式一致性哈希-缩容" id="yWH0Skgvwrag0JrlLhQe">
-        <mxGraphModel dx="1084" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1572" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="r3LM12rtTiZwdMKzA08n-0"/>
                 <mxCell id="r3LM12rtTiZwdMKzA08n-1" parent="r3LM12rtTiZwdMKzA08n-0"/>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="340" y="260" width="280" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="330" y="390" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-4" value="C" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-4" value="C" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="610" y="390" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-5" value="D" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;dashed=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-5" value="D" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;dashed=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="470" y="530" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-6" value="B" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-6" value="B" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="470" y="250" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-7" value="A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-7" value="A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="310" y="385" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="r3LM12rtTiZwdMKzA08n-10" value="节点下线" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="r3LM12rtTiZwdMKzA08n-1">
+                <mxCell id="r3LM12rtTiZwdMKzA08n-10" value="节点下线" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="r3LM12rtTiZwdMKzA08n-1" vertex="1">
                     <mxGeometry x="430" y="550" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram name="DiskANN Server 扩缩容" id="nJ3Gt4F4mVlEkVsQFx_M">
-        <mxGraphModel dx="1572" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1572" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="B6bvSRhntwAdCzWcwHlX-0"/>
                 <mxCell id="B6bvSRhntwAdCzWcwHlX-1" parent="B6bvSRhntwAdCzWcwHlX-0"/>
@@ -311,7 +311,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="DiskANN Server 扩缩容 升级版" id="YWT8rJlzaPUkMyFxkXT2">
-        <mxGraphModel dx="1572" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1572" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0jPhWe5SMJ6izOc9fW33-0"/>
                 <mxCell id="0jPhWe5SMJ6izOc9fW33-1" parent="0jPhWe5SMJ6izOc9fW33-0"/>
