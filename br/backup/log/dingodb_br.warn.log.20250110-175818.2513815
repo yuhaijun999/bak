@@ -1,0 +1,5 @@
+Log file created at: 2025/01/10 17:58:18
+Running on machine: dingo11.com
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W20250110 17:58:18.383740 2513815 main.cc:487] [main] coordinator url is empty, try to use file://./coor_list

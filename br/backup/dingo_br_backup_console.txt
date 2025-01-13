@@ -1,0 +1,46 @@
+server@dingo11 bin [wip-br-backup] $  ./dingodb_br  --br_type=backup --br_backup_type=full --backupts='2025-01-10 15:40:00' --storage=local:///home/server/work/dingo-store/build/bin/backup2/
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I20250110 17:58:18.382953 2513815 helper.cc:1430] [CreateDirectories] Create directory success, path: ./log
+Number of command line arguments : 5
+args[0]=[./dingodb_br]
+args[1]=[--br_type=backup]
+args[2]=[--br_backup_type=full]
+args[3]=[--backupts=2025-01-10 15:40:00]
+args[4]=[--storage=local:///home/server/work/dingo-store/build/bin/backup2/]
+Detail BR log in ./log
+Full Backup Parameter :
+coordinator url    : 172.30.14.11:32001,172.30.14.11:32002,172.30.14.11:32003
+store       url    : 172.30.14.11:30001,172.30.14.11:30002,172.30.14.11:30003
+index       url    : 172.30.14.11:31001,172.30.14.11:31002,172.30.14.11:31003
+document    url    : 172.30.14.11:33001,172.30.14.11:33002,172.30.14.11:33003
+br type            : backup
+br backup type     : full
+backupts           : 2025-01-10 15:40:00
+backuptso_internal : 41598792499200000
+storage            : local:///home/server/work/dingo-store/build/bin/backup2/
+storage_internal   : /home/server/work/dingo-store/build/bin/backup2
+
+Full Backup
+version compare ok
+# max tenant safe points : 0 min tenant resolve lock safe points : 41598792499200000 backuptso(internal) : 41598792499200000
+safe point ts check ok
+backup_task_id : 12980065-0016-92d6-2994-855a4fa28845
+register backup To coordinator ok
+gc already stopped. ignore
+balance leader set stopped ok
+balance region set stopped ok
+region auto split set stopped ok
+region auto merge set stopped ok
+Backup task 12980065-0016-92d6-2994-855a4fa28845 is registered to coordinator Periodicity.
+Back Meta Init ok
+Back Data Init ok
+Full Backup Sql Data <-------------------------------------------------------------------------------------> 100.00% [S:79,I:2,D:4]
+Full Backup Sdk Data <---> 100.00% [S:1,I:1,D:1]
+Full Backup Sql Meta <--> 100.00% [S:1]
+Full Backup Sdk Meta <-> 100.00%
+Waiting for register backup thread exit. (Do not use kill -9 or Ctrl-C to exit.) <->
+balance leader set start ok
+balance region set start ok
+region auto split set start ok
+region auto merge set start ok
+[Full Backup success summary][backup-total-ranges=89] [backup-sql-meta-ranges=1][total-take=10.535s]

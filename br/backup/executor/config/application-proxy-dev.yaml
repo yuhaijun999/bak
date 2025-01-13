@@ -1,0 +1,12 @@
+server:
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+        min-response-size: 1024
+    host: 127.0.0.1
+    port: 13000
+    grpc:
+        port: 9999
+    coordinatorExchangeSvrList: 172.30.14.11:32001,172.30.14.11:32002,172.30.14.11:32003
+    client:
+      retry: 60

@@ -1,0 +1,472 @@
+Log file created at: 2025/01/10 17:58:18
+Running on machine: dingo11.com
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20250110 17:58:18.383208 2513815 main.cc:475] [main] Number of command line arguments : 5
+I20250110 17:58:18.383530 2513815 main.cc:479] [main] args[0]=[./dingodb_br]
+I20250110 17:58:18.383584 2513815 main.cc:479] [main] args[1]=[--br_type=backup]
+I20250110 17:58:18.383620 2513815 main.cc:479] [main] args[2]=[--br_backup_type=full]
+I20250110 17:58:18.383670 2513815 main.cc:479] [main] args[3]=[--backupts=2025-01-10 15:40:00]
+I20250110 17:58:18.383706 2513815 main.cc:479] [main] args[4]=[--storage=local:///home/server/work/dingo-store/build/bin/backup2/]
+W20250110 17:58:18.383740 2513815 main.cc:487] [main] coordinator url is empty, try to use file://./coor_list
+I20250110 17:58:18.384172 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.392746 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.392853 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.407827 2513815 main.cc:87] [SetStoreInteraction] store_id=30001, host=172.30.14.11,  30001
+I20250110 17:58:18.407928 2513815 main.cc:87] [SetStoreInteraction] store_id=30002, host=172.30.14.11,  30002
+I20250110 17:58:18.407970 2513815 main.cc:87] [SetStoreInteraction] store_id=30003, host=172.30.14.11,  30003
+I20250110 17:58:18.408031 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.408082 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.408149 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.408857 2513815 main.cc:124] [SetIndexInteraction] index_id=31001, host=172.30.14.11,  31001
+I20250110 17:58:18.408926 2513815 main.cc:124] [SetIndexInteraction] index_id=31002, host=172.30.14.11,  31002
+I20250110 17:58:18.408959 2513815 main.cc:124] [SetIndexInteraction] index_id=31003, host=172.30.14.11,  31003
+I20250110 17:58:18.409018 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31001
+I20250110 17:58:18.409065 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31002
+I20250110 17:58:18.409106 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31003
+I20250110 17:58:18.409850 2513815 main.cc:161] [SetDocumentInteraction] document_id=33001, host=172.30.14.11,  33001
+I20250110 17:58:18.409945 2513815 main.cc:161] [SetDocumentInteraction] document_id=33002, host=172.30.14.11,  33002
+I20250110 17:58:18.409986 2513815 main.cc:161] [SetDocumentInteraction] document_id=33003, host=172.30.14.11,  33003
+I20250110 17:58:18.410048 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33001
+I20250110 17:58:18.410099 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33002
+I20250110 17:58:18.410176 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33003
+I20250110 17:58:18.410326 2513815 main.cc:597] [main] Full Backup Parameter :
+I20250110 17:58:18.410373 2513815 main.cc:601] [main] coordinator url    : 172.30.14.11:32001,172.30.14.11:32002,172.30.14.11:32003
+I20250110 17:58:18.410413 2513815 main.cc:606] [main] store       url    : 172.30.14.11:30001,172.30.14.11:30002,172.30.14.11:30003
+I20250110 17:58:18.410452 2513815 main.cc:611] [main] index       url    : 172.30.14.11:31001,172.30.14.11:31002,172.30.14.11:31003
+I20250110 17:58:18.410490 2513815 main.cc:616] [main] document    url    : 172.30.14.11:33001,172.30.14.11:33002,172.30.14.11:33003
+I20250110 17:58:18.410527 2513815 main.cc:620] [main] br type            : backup
+I20250110 17:58:18.410560 2513815 main.cc:623] [main] br backup type     : full
+I20250110 17:58:18.410593 2513815 main.cc:626] [main] backupts           : 2025-01-10 15:40:00
+I20250110 17:58:18.410627 2513815 main.cc:629] [main] backuptso_internal : 41598792499200000
+I20250110 17:58:18.410660 2513815 main.cc:632] [main] storage            : local:///home/server/work/dingo-store/build/bin/backup2/
+I20250110 17:58:18.410694 2513815 main.cc:635] [main] storage_internal   : /home/server/work/dingo-store/build/bin/backup2
+I20250110 17:58:18.410753 2513815 main.cc:640] [main] 
+I20250110 17:58:18.410791 2513815 main.cc:643] [main] Full Backup
+I20250110 17:58:18.411334 2513815 backup.cc:1141] [CompareVersion] local version info : git_commit_hash: "v0.9.0-266-g507fa716-dirty"
+git_tag_name: "v0.9.0"
+git_commit_user: "Haijun Yu"
+git_commit_mail: "yuhaijun999@hotmail.com"
+git_commit_time: "2024-12-08 10:09:00 +0800"
+major_version: "v0.9.0"
+minor_version: "0"
+dingo_build_type: "Debug"
+dingo_contrib_build_type: "Debug"
+
+I20250110 17:58:18.419948 2513815 backup.cc:1142] [CompareVersion] remote version info : git_commit_hash: "v0.9.0-266-g507fa716-dirty"
+git_tag_name: "v0.9.0"
+git_commit_user: "Haijun Yu"
+git_commit_mail: "yuhaijun999@hotmail.com"
+git_commit_time: "2024-12-08 10:09:00 +0800"
+major_version: "v0.9.0"
+minor_version: "0"
+dingo_build_type: "Debug"
+dingo_contrib_build_type: "Debug"
+use_mkl: true
+
+I20250110 17:58:18.420147 2513815 backup.cc:96] [Init] version compare ok
+I20250110 17:58:18.422101 2513815 backup.cc:656] [GetGcSafePoint] Backup safe point is 41598792499200000
+I20250110 17:58:18.422221 2513815 backup.cc:669] [GetGcSafePoint] # max tenant safe points : 0 min tenant resolve lock safe points : 41598792499200000 backuptso(internal) : 41598792499200000
+I20250110 17:58:18.422261 2513815 backup.cc:674] [GetGcSafePoint] GC is already stopped. Backup will not enable  if backup is finished.
+I20250110 17:58:18.422308 2513815 backup.cc:105] [Init] safe point ts check ok
+I20250110 17:58:18.423092 2513815 backup.cc:117] [Init] backup_task_id : 12980065-0016-92d6-2994-855a4fa28845
+I20250110 17:58:18.425688 2513815 backup.cc:132] [Init] register backup To coordinator ok
+I20250110 17:58:18.425776 2513815 backup.cc:145] [Init] gc already stopped. ignore
+I20250110 17:58:18.428026 2513815 backup.cc:156] [Init] balance leader set stopped ok
+I20250110 17:58:18.428114 2513815 backup.cc:164] [Init] balance region set stopped ok
+I20250110 17:58:18.444219 2513815 backup.cc:179] [Init] region auto split set stopped ok
+I20250110 17:58:18.444308 2513815 backup.cc:187] [Init] region auto merge set stopped ok
+I20250110 17:58:18.444478 2513815 backup.cc:209] [Init] backup dir : /home/server/work/dingo-store/build/bin/backup2 not exist. create recursion dir.
+I20250110 17:58:18.444730 2513815 backup.cc:234] [Init] write backup lock file : /home/server/work/dingo-store/build/bin/backup2/backup.lock success
+I20250110 17:58:18.444774 2513815 backup.cc:236] [Init] Backup::Init  success
+I20250110 17:58:18.444846 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.444897 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.444936 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.445134 2513815 backup.cc:274] [Run] Backup task 12980065-0016-92d6-2994-855a4fa28845 is registered to coordinator Periodicity.
+I20250110 17:58:18.445227 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.445274 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.445310 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.445369 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.445405 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.445438 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.445494 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31001
+I20250110 17:58:18.445530 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31002
+I20250110 17:58:18.445566 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31003
+I20250110 17:58:18.445622 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33001
+I20250110 17:58:18.445658 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33002
+I20250110 17:58:18.445693 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33003
+I20250110 17:58:18.445760 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.445818 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.445859 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.445917 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.445955 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.445988 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.447574 2513815 backup_meta.cc:76] [Init] GetSqlMetaRegionFromCoordinator success
+I20250110 17:58:18.447693 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.447749 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.447788 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.465565 2513815 backup_meta.cc:96] [Init] GetSdkMetaFromCoordinator success
+I20250110 17:58:18.465665 2513815 backup.cc:337] [DoRun] Back Meta Init ok
+I20250110 17:58:18.465735 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.465783 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.465821 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.465879 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.465917 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.465951 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.466007 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31001
+I20250110 17:58:18.466044 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31002
+I20250110 17:58:18.466079 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31003
+I20250110 17:58:18.466150 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33001
+I20250110 17:58:18.466203 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33002
+I20250110 17:58:18.466255 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33003
+I20250110 17:58:18.466310 2513815 backup.cc:376] [DoRun] sql meta region list size : 1
+I20250110 17:58:18.466347 2513815 backup.cc:378] [DoRun] sql meta region id : 80001
+I20250110 17:58:18.480315 2513815 backup_data.cc:280] [GetAllRegionMapFromCoordinator] ===================================================
+I20250110 17:58:18.480401 2513815 backup_data.cc:281] [GetAllRegionMapFromCoordinator] GetRegionMap region size = 89
+I20250110 17:58:18.480441 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80001, 80002, 80003, 80004, 80005, 80006, 80007, 80008, 80009, 80010]
+I20250110 17:58:18.480471 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80011, 80012, 80013, 80014, 80015, 80016, 80017, 80018, 80019, 80020]
+I20250110 17:58:18.480499 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80021, 80022, 80023, 80024, 80025, 80026, 80027, 80028, 80029, 80030]
+I20250110 17:58:18.480525 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80031, 80032, 80033, 80034, 80035, 80036, 80037, 80038, 80039, 80040]
+I20250110 17:58:18.480551 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80041, 80042, 80043, 80044, 80045, 80046, 80047, 80048, 80049, 80050]
+I20250110 17:58:18.480576 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80051, 80052, 80053, 80054, 80055, 80056, 80057, 80058, 80059, 80060]
+I20250110 17:58:18.480602 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80061, 80062, 80063, 80064, 80065, 80066, 80067, 80068, 80069, 80070]
+I20250110 17:58:18.480628 2513815 backup_data.cc:290] [GetAllRegionMapFromCoordinator] region_id=[80071, 80072, 80073, 80074, 80075, 80076, 80077, 80078, 80079, 80080]
+I20250110 17:58:18.480654 2513815 backup_data.cc:296] [GetAllRegionMapFromCoordinator] region_id=[80081, 80082, 80083, 80084, 80085, 80086, 80087, 80088, 80089]
+I20250110 17:58:18.480677 2513815 backup_data.cc:298] [GetAllRegionMapFromCoordinator] ===================================================
+I20250110 17:58:18.480847 2513815 backup_data.cc:57] [Init] GetAllRegionMapFromCoordinator success
+I20250110 17:58:18.480921 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.480971 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.481009 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.481068 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.481105 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.481163 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.481225 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31001
+I20250110 17:58:18.481261 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31002
+I20250110 17:58:18.481297 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31003
+I20250110 17:58:18.481365 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33001
+I20250110 17:58:18.481407 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33002
+I20250110 17:58:18.481442 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33003
+I20250110 17:58:18.481947 2513815 backup_sql_data.cc:78] [Filter] sql data : wait_for_handle_store_regions size = 79
+I20250110 17:58:18.482003 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80002, 80003, 80004, 80005, 80006, 80007, 80008, 80009, 80010, 80011]
+I20250110 17:58:18.482034 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80012, 80013, 80014, 80015, 80016, 80017, 80018, 80019, 80020, 80021]
+I20250110 17:58:18.482061 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80022, 80023, 80024, 80025, 80026, 80027, 80028, 80029, 80030, 80031]
+I20250110 17:58:18.482087 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80032, 80033, 80034, 80035, 80036, 80037, 80038, 80039, 80040, 80041]
+I20250110 17:58:18.482113 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80042, 80043, 80044, 80045, 80046, 80047, 80048, 80049, 80050, 80051]
+I20250110 17:58:18.482159 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80052, 80053, 80054, 80055, 80056, 80057, 80058, 80059, 80060, 80061]
+I20250110 17:58:18.482187 2513815 backup_sql_data.cc:87] [Filter] sql data : wait_for_handle_store_regions region id=[80062, 80063, 80064, 80065, 80066, 80067, 80068, 80069, 80070, 80071]
+I20250110 17:58:18.482213 2513815 backup_sql_data.cc:94] [Filter] sql data : wait_for_handle_store_regions region id=[80072, 80073, 80074, 80075, 80076, 80077, 80080, 80083, 80085]
+I20250110 17:58:18.482237 2513815 backup_sql_data.cc:100] [Filter] sql data : wait_for_handle_index_regions size = 2
+I20250110 17:58:18.482262 2513815 backup_sql_data.cc:114] [Filter] sql data : wait_for_handle_store_regions region id=[80084, 80086]
+I20250110 17:58:18.482286 2513815 backup_sql_data.cc:120] [Filter] sql data : wait_for_handle_document_regions size = 4
+I20250110 17:58:18.482311 2513815 backup_sql_data.cc:135] [Filter] sql data : wait_for_handle_document_regions region id=[80078, 80079, 80081, 80082]
+I20250110 17:58:18.482367 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32001
+I20250110 17:58:18.482410 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32002
+I20250110 17:58:18.482445 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:32003
+I20250110 17:58:18.482501 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30001
+I20250110 17:58:18.482538 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30002
+I20250110 17:58:18.482571 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:30003
+I20250110 17:58:18.482626 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31001
+I20250110 17:58:18.482661 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31002
+I20250110 17:58:18.482708 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:31003
+I20250110 17:58:18.482767 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33001
+I20250110 17:58:18.482803 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33002
+I20250110 17:58:18.482838 2513815 interation.cc:43] [Init] Init channel 172.30.14.11:33003
+I20250110 17:58:18.482926 2513815 backup_sdk_data.cc:73] [Filter] sdk data : wait_for_handle_store_regions size = 1
+I20250110 17:58:18.482968 2513815 backup_sdk_data.cc:89] [Filter] sdk data : wait_for_handle_store_regions region id=[80087]
+I20250110 17:58:18.482993 2513815 backup_sdk_data.cc:95] [Filter] sdk data : wait_for_handle_index_regions size = 1
+I20250110 17:58:18.483017 2513815 backup_sdk_data.cc:109] [Filter] sdk data : wait_for_handle_index_regions region id=[80088]
+I20250110 17:58:18.483042 2513815 backup_sdk_data.cc:115] [Filter] sdk data : wait_for_handle_document_regions size = 1
+I20250110 17:58:18.483067 2513815 backup_sdk_data.cc:129] [Filter] sdk data : wait_for_handle_document_regions region id=[80089]
+I20250110 17:58:18.483104 2513815 backup.cc:388] [DoRun] Back Data Init ok
+I20250110 17:58:18.483615 2513815 backup_sql_data.cc:193] [Run] Full Backup Sql Data <
+I20250110 17:58:21.484325 2513815 backup_sql_data.cc:221] [Run] -------------------------------------------------------------------------------------
+I20250110 17:58:21.484422 2513815 backup_sql_data.cc:222] [Run] > 100.00% [S:79,I:2,D:4]
+I20250110 17:58:21.484467 2513815 backup_sql_data.cc:228] [Run] backup sql data  total_regions : 85, store_regions : 79, index_regions : 2, document_regions : 4
+I20250110 17:58:21.501552 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "executor create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 5431
+encryption: "d5f50aef11307d0b950d29722c403fd5aa1376ca"
+file_name: "store_region_sql_data.sst"
+
+I20250110 17:58:21.521690 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "executor create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1262
+encryption: "a19107c779a76954f96082399dce879d747c5fb8"
+file_name: "index_region_sql_data.sst"
+
+I20250110 17:58:21.529788 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "executor create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1469
+encryption: "11dcd862d7a2505bf60b87407ca4d7a008de92a3"
+file_name: "document_region_sql_data.sst"
+
+I20250110 17:58:21.540421 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "executor create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "store"
+file_size: 3402
+encryption: "4af48501d6f32f1d928f634d40437c51790f8963"
+file_name: "store_cf_sst_meta_sql_data.sst"
+
+I20250110 17:58:21.558750 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "executor create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "index"
+file_size: 1351
+encryption: "6cf408cce616a63d8d4b99b52cdd73148910cad1"
+file_name: "index_cf_sst_meta_sql_data.sst"
+
+I20250110 17:58:21.564941 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "executor create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "document"
+file_size: 1533
+encryption: "ac89348792a8da5276566c700bc52c374f497e55"
+file_name: "document_cf_sst_meta_sql_data.sst"
+
+I20250110 17:58:21.565418 2513815 backup_sdk_data.cc:182] [Run] Full Backup Sdk Data <
+I20250110 17:58:27.566213 2513815 backup_sdk_data.cc:210] [Run] ---
+I20250110 17:58:27.566313 2513815 backup_sdk_data.cc:211] [Run] > 100.00% [S:1,I:1,D:1]
+I20250110 17:58:27.566357 2513815 backup_sdk_data.cc:217] [Run] backup sdk data  total_regions : 3, store_regions : 1, index_regions : 1, document_regions : 1
+I20250110 17:58:27.588325 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "python sdk create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1145
+encryption: "416dcd105eab011cf405171fbc3253a8a34a6f05"
+file_name: "store_region_sdk_data.sst"
+
+I20250110 17:58:27.610317 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "python sdk create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1178
+encryption: "a98b67cfe607da4f2095acef94dc45933189acae"
+file_name: "index_region_sdk_data.sst"
+
+I20250110 17:58:27.619827 2513815 backup_data_base.cc:210] [DoBackupRegion] remark: "python sdk create region meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1252
+encryption: "97158b266d90058504137184aa03c32eb587cfe4"
+file_name: "document_region_sdk_data.sst"
+
+I20250110 17:58:27.630654 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "python sdk create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "store"
+file_size: 1198
+encryption: "ccbd3607d0e4a49b6ddb0da4657db92a3aae129f"
+file_name: "store_cf_sst_meta_sdk_data.sst"
+
+I20250110 17:58:27.653792 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "python sdk create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "index"
+file_size: 1346
+encryption: "573eec9b1973592db6b5eb8186cd1ecfb1976016"
+file_name: "index_cf_sst_meta_sdk_data.sst"
+
+I20250110 17:58:27.673504 2513815 backup_data_base.cc:265] [DoBackupCfSstMeta] remark: "python sdk create region sst meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "document"
+file_size: 1200
+encryption: "1872d792aa95692d69de373c620d5027e0b13f39"
+file_name: "document_cf_sst_meta_sdk_data.sst"
+
+I20250110 17:58:27.679073 2513815 backup_data.cc:249] [Finish] remark: "backup sdk data and sql data. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "backup"
+file_size: 1995
+encryption: "22a23872b2b4fe424ec158433f6d3c330d1ba42a"
+file_name: "backupmeta.datafile"
+
+I20250110 17:58:27.679440 2513815 backup_meta_base.cc:84] [Run] Full Backup Sql Meta <
+I20250110 17:58:27.679497 2513815 backup_meta_base.cc:87] [Run] -
+I20250110 17:58:27.752327 2513815 backup_meta_base.cc:87] [Run] -
+I20250110 17:58:27.752436 2513815 backup_meta_base.cc:102] [Run] > 100.00% [S:1]
+I20250110 17:58:27.752481 2513815 backup_meta_base.cc:106] [Run] backup sql meta  total_regions : 1, store_regions : 1
+I20250110 17:58:27.774529 2513815 backup_meta_base.cc:206] [DoBackupRegion] remark: "executor sql create tenants, schema, table, index etc. meta info. save dingodb::pb::common::Region. "
+exec_node: "coordinator"
+file_size: 1108
+encryption: "9a7d3ac80f17d6fb7fed5f010f0129bf67264343"
+file_name: "store_region_sql_meta.sst"
+
+I20250110 17:58:27.784754 2513815 backup_meta_base.cc:257] [DoBackupCfSstMeta] remark: "executor sql create tenants, schema, table, index etc. meta info. save dingodb::pb::common::BackupDataFileValueSstMetaGroup."
+exec_node: "store"
+file_size: 1260
+encryption: "cff579e7f58324b6dc497aa3932402669a8da130"
+file_name: "store_cf_sst_meta_sql_meta.sst"
+
+I20250110 17:58:27.785028 2513815 backup_sdk_meta.cc:63] [Run] Full Backup Sdk Meta <
+I20250110 17:58:27.785085 2513815 backup_sdk_meta.cc:66] [Run] -
+I20250110 17:58:27.785147 2513815 backup_sdk_meta.cc:69] [Run] > 100.00%
+I20250110 17:58:27.807363 2513815 backup_sdk_meta.cc:114] [Backup] remark: "python sdk create tenants, schema, table, index etc. meta info. save dingodb::pb::meta::MetaALL."
+exec_node: "coordinator"
+file_size: 1643
+encryption: "4cdb1e84b1ec228eb5514acde9891712bed6327c"
+file_name: "coordinator_sdk_meta.sst"
+
+I20250110 17:58:27.827564 2513815 backup_meta.cc:193] [Finish] remark: "backup sdk meta and sql meta. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "backup"
+file_size: 1472
+encryption: "33203b8ea27088873091aa3b09482f613cad7717"
+file_name: "backupmeta.schema"
+
+I20250110 17:58:27.935626 2513815 backup.cc:496] [DoRun] backupmeta<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+I20250110 17:58:27.935694 2513815 backup.cc:498] [DoRun] pb::common::VersionInfo :
+I20250110 17:58:27.935737 2513815 backup.cc:499] [DoRun] git_commit_hash: "v0.9.0-266-g507fa716-dirty"
+git_tag_name: "v0.9.0"
+git_commit_user: "Haijun Yu"
+git_commit_mail: "yuhaijun999@hotmail.com"
+git_commit_time: "2024-12-08 10:09:00 +0800"
+major_version: "v0.9.0"
+minor_version: "0"
+dingo_build_type: "Debug"
+dingo_contrib_build_type: "Debug"
+
+I20250110 17:58:27.935828 2513815 backup.cc:501] [DoRun] pb::common::BackupParam :
+I20250110 17:58:27.935858 2513815 backup.cc:502] [DoRun] coor_addr: "file://./coor_list"
+store_addr: "172.30.14.11:33001,172.30.14.11:33002,172.30.14.11:33003"
+br_type: "backup"
+br_backup_type: "full"
+backupts: "2025-01-10 15:40:00"
+backuptso_internal: 41598792499200000
+storage: "local:///home/server/work/dingo-store/build/bin/backup2/"
+storage_internal: "/home/server/work/dingo-store/build/bin/backup2"
+
+I20250110 17:58:27.935926 2513815 backup.cc:504] [DoRun] dingodb::pb::meta::IdEpochTypeAndValue :
+I20250110 17:58:27.935956 2513815 backup.cc:505] [DoRun] items {
+  type: ID_NEXT_COORINATOR
+  value: 20000
+}
+items {
+  type: ID_NEXT_STORE
+  value: 30000
+}
+items {
+  type: ID_NEXT_EXECUTOR
+  value: 40000
+}
+items {
+  type: ID_NEXT_SCHEMA
+  value: 50008
+}
+items {
+  type: ID_NEXT_REGION
+  value: 80089
+}
+items {
+  type: ID_NEXT_TABLE
+  value: 60174
+}
+items {
+  type: ID_NEXT_INDEX
+}
+items {
+  type: EPOCH_MDS
+}
+items {
+  type: ID_NEXT_TENANT
+  value: 1001
+}
+items {
+  type: EPOCH_COORINATOR
+}
+items {
+  type: EPOCH_STORE
+  value: 1009
+}
+items {
+  type: EPOCH_EXECUTOR
+  value: 1008
+}
+items {
+  type: EPOCH_SCHEMA
+}
+items {
+  type: EPOCH_REGION
+  value: 1003
+}
+items {
+  type: EPOCH_TABLE
+  value: 1001
+}
+items {
+  type: EPOCH_INDEX
+  value: 1002
+}
+items {
+  type: RAFT_APPLY_TERM
+  value: 5
+}
+items {
+  type: RAFT_APPLY_INDEX
+  value: 576
+}
+items {
+  type: ID_NEXT_REGION_CMD
+  value: 1000316
+}
+items {
+  type: ID_NEXT_TASK_LIST
+  value: 1024
+}
+items {
+  type: ID_NEXT_LEASE
+}
+items {
+  type: ID_NEXT_REVISION
+}
+items {
+  type: ID_NEXT_META_WATCH
+  value: 1007
+}
+items {
+  type: ID_GC_SAFE_POINT
+}
+items {
+  type: ID_SCHEMA_VERSION
+}
+items {
+  type: ID_DDL_JOB
+  value: 1006
+}
+items {
+  type: ID_GC_RESOLVE_LOCK_SAFE_POINT
+  value: 41598792499200000
+}
+
+I20250110 17:58:27.936213 2513815 backup.cc:507] [DoRun] dingodb::pb::meta::TableIncrementGroup :
+I20250110 17:58:27.936250 2513815 backup.cc:508] [DoRun] table_increments {
+  table_id: 60145
+  start_id: 10001
+}
+table_increments {
+  table_id: 60147
+  start_id: 10001
+}
+table_increments {
+  table_id: 60161
+  start_id: 10001
+}
+table_increments {
+  table_id: 60165
+  start_id: 10001
+}
+table_increments {
+  table_id: 60171
+  start_id: 100
+}
+table_increments {
+  table_id: 60173
+  start_id: 100
+}
+
+I20250110 17:58:27.936331 2513815 backup.cc:510] [DoRun] backupmeta.schema :
+I20250110 17:58:27.936359 2513815 backup.cc:511] [DoRun] remark: "backup sdk meta and sql meta. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "backup"
+file_size: 1472
+encryption: "33203b8ea27088873091aa3b09482f613cad7717"
+file_name: "backupmeta.schema"
+
+I20250110 17:58:27.936414 2513815 backup.cc:513] [DoRun] backupmeta.datafile :
+I20250110 17:58:27.936441 2513815 backup.cc:514] [DoRun] remark: "backup sdk data and sql data. save dingodb::pb::common::BackupDataFileValueSstMetaGroup. "
+exec_node: "backup"
+file_size: 1995
+encryption: "22a23872b2b4fe424ec158433f6d3c330d1ba42a"
+file_name: "backupmeta.datafile"
+
+I20250110 17:58:27.936491 2513815 backup.cc:515] [DoRun] backupmeta<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+I20250110 17:58:27.937248 2513815 backup.cc:1160] [DoFinish] Waiting for register backup thread exit. (Do not use kill -9 or Ctrl-C to exit.) <
+I20250110 17:58:28.450001 2513827 backup.cc:882] [DoRegisterBackupToCoordinatorInternal] exit register backup  thread.
+I20250110 17:58:28.937427 2513815 backup.cc:1172] [DoFinish] ->
+I20250110 17:58:28.941936 2513815 backup.cc:1184] [DoFinish] balance leader set start ok
+I20250110 17:58:28.942021 2513815 backup.cc:1189] [DoFinish] balance region set start ok
+I20250110 17:58:28.945770 2513815 backup.cc:1198] [DoFinish] region auto split set start ok
+I20250110 17:58:28.945855 2513815 backup.cc:1203] [DoFinish] region auto merge set start ok
+I20250110 17:58:28.945935 2513815 backup.cc:573] [Finish] [Full Backup success summary][backup-total-ranges=89] [backup-sql-meta-ranges=1][total-take=10.535s]
+I20250110 17:58:28.945969 2513815 main.cc:668] [main] Backup finish

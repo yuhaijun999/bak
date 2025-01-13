@@ -1,0 +1,69 @@
+server@dingo11 backup2 $ tree
+.
+├── backup.lock
+├── backupmeta
+├── backupmeta.datafile
+├── backupmeta.debug
+├── backupmeta.encryption
+├── backupmeta.schema
+├── coordinator_sdk_meta.sst
+├── document-33001
+│   ├── 80081_1-1_0a7d8ab58b0c2fc6037e4b9438d17f356ea885fb_1736503098_write.sst
+│   └── 80089_1-1_04a023dbd1747818cc30add20d024f85a3429065_1736503101_default.sst
+├── document-33002
+│   └── 80082_1-1_90a12fc2f00319f16c7065e1fff4545ee7f5f837_1736503099_write.sst
+├── document-33003
+│   ├── 80078_1-1_9b7304874d27c29d83e8a623ebf44ab8d5fab830_1736503098_write.sst
+│   └── 80079_1-1_0c2dc2e4e857a429526da1a8947af35a3ddaecec_1736503098_write.sst
+├── document_cf_sst_meta_sdk_data.sst
+├── document_cf_sst_meta_sql_data.sst
+├── document_region_sdk_data.sst
+├── document_region_sql_data.sst
+├── index-31001
+│   ├── 80084_1-1_543928c583507343d0ecb3bf7252df46fbbc92e3_1736503098_write.sst
+│   └── 80086_1-1_2a0edcc0162e5beeeb95f6c33872438486d77651_1736503098_write.sst
+├── index-31003
+│   ├── 80088_1-1_29a6f6a00cbc6cf8a8a4db4434d41ab005e3e13d_1736503107_default.sst
+│   ├── 80088_1-1_29a6f6a00cbc6cf8a8a4db4434d41ab005e3e13d_1736503107_vector_scalar.sst
+│   └── 80088_1-1_29a6f6a00cbc6cf8a8a4db4434d41ab005e3e13d_1736503107_vector_table.sst
+├── index_cf_sst_meta_sdk_data.sst
+├── index_cf_sst_meta_sql_data.sst
+├── index_region_sdk_data.sst
+├── index_region_sql_data.sst
+├── store-30001
+│   ├── 80049_1-1_2a63be0fb80127ef8cf90f3abe957fdcffe2bd2e_1736503099_write.sst
+│   ├── 80050_1-1_fc98bf6afa0bc8625c1d7bbbfe0468eb26127cb1_1736503099_data.sst
+│   ├── 80050_1-1_fc98bf6afa0bc8625c1d7bbbfe0468eb26127cb1_1736503099_write.sst
+│   └── 80083_1-1_8a175a6035cf0b85ed52476a7130d5c54d59241a_1736503101_write.sst
+├── store-30002
+│   ├── 80001_1-1_d92861a3732ee2e389491cb5d53b2663dce764ea_1736503107_data.sst
+│   ├── 80001_1-1_d92861a3732ee2e389491cb5d53b2663dce764ea_1736503107_write.sst
+│   ├── 80014_1-1_87fe44f2ca6431dc6a59be3f3541f6184cd871c0_1736503099_data.sst
+│   ├── 80014_1-1_87fe44f2ca6431dc6a59be3f3541f6184cd871c0_1736503099_write.sst
+│   ├── 80015_1-1_b6d42656f6b769a28b6201e5cf7c2788acff2edf_1736503099_write.sst
+│   ├── 80039_1-1_a696fd1df41e2e824835e8d670d8863f921d292c_1736503099_data.sst
+│   ├── 80039_1-1_a696fd1df41e2e824835e8d670d8863f921d292c_1736503099_write.sst
+│   ├── 80076_1-1_62a5a4a7f1c4168c11c1da35d71dfa200fb1015b_1736503100_data.sst
+│   ├── 80076_1-1_62a5a4a7f1c4168c11c1da35d71dfa200fb1015b_1736503100_write.sst
+│   ├── 80080_1-1_c8c8d06e6a58896ffeef71efa9939e7a31e6324a_1736503101_write.sst
+│   ├── 80085_1-1_7b3767d00ef97562cda550dfcdafc47be34dcba3_1736503101_write.sst
+│   └── 80087_1-1_98fb0bd5bd60ef58cc6685c75222d4a541efe0ab_1736503101_default.sst
+├── store-30003
+│   ├── 80002_1-1_f37b1b8c35fcc9a7d305d3522ed7a6cb526040b0_1736503098_data.sst
+│   ├── 80002_1-1_f37b1b8c35fcc9a7d305d3522ed7a6cb526040b0_1736503098_write.sst
+│   ├── 80003_1-1_2814727d4308302a8260851aa1444364ccf5434a_1736503098_data.sst
+│   ├── 80003_1-1_2814727d4308302a8260851aa1444364ccf5434a_1736503098_write.sst
+│   ├── 80013_1-1_08743b12c856d06d8187e42181bae9283b58263f_1736503099_write.sst
+│   ├── 80051_1-1_4808f25578ae9371c9d6739635130100038634ee_1736503100_write.sst
+│   ├── 80075_1-1_b3fdde306571cbfb007b62a979dd376957910cb4_1736503100_data.sst
+│   ├── 80075_1-1_b3fdde306571cbfb007b62a979dd376957910cb4_1736503100_write.sst
+│   └── 80077_1-1_ab768f31848ac4b8fc6f40ffbe49d631092500c1_1736503100_write.sst
+├── store_cf_sst_meta_sdk_data.sst
+├── store_cf_sst_meta_sql_data.sst
+├── store_cf_sst_meta_sql_meta.sst
+├── store_region_sdk_data.sst
+├── store_region_sql_data.sst
+└── store_region_sql_meta.sst
+
+8 directories, 56 files
+
