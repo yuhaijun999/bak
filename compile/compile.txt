@@ -1,13 +1,37 @@
 
-dingo-store
-#cmake -DCMAKE_BUILD_TYPE=Debug -DTHIRD_PARTY_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF -DBUILD_INTEGRATION_TESTS=ON ..
-cmake -DCMAKE_BUILD_TYPE=Debug -DTHIRD_PARTY_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF -DBUILD_INTEGRATION_TESTS=ON -DDINGO_BUILD_STATIC=OFF -DCMAKE_CXX_STANDARD=17  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-cmake -DCMAKE_BUILD_TYPE=Debug -DTHIRD_PARTY_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF -DBUILD_INTEGRATION_TESTS=ON -DDINGO_BUILD_STATIC=OFF -DCMAKE_CXX_STANDARD=23  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+1.dingo-store
+git clone git@github.com:yuhaijun999/dingo-store.git
+git remote add zetyun git@github.com:dingodb/dingo-store.git
 
+#debug
+cmake -DWITH_DISKANN=ON -DWITH_MKL=ON   -DCMAKE_BUILD_TYPE=Debug -DTHIRD_PARTY_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF  -DDINGO_BUILD_STATIC=OFF -DCMAKE_CXX_STANDARD=17  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+bear --append -- make -j 80
+
+#release
+cmake -DWITH_DISKANN=ON -DWITH_MKL=ON   -DCMAKE_BUILD_TYPE=Release  -DTHIRD_PARTY_BUILD_TYPE=Release  -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF  -DDINGO_BUILD_STATIC=OFF -DCMAKE_CXX_STANDARD=17  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+bear --append -- make -j 80
+
+2. dingo-sdk
+git clone git@github.com:yuhaijun999/dingo-sdk.git
+git remote add zetyun git@github.com:dingodb/dingo-sdk.git
+
+# debug
+cmake -DCMAKE_BUILD_TYPE=Debug  -DTHIRD_PARTY_INSTALL_PATH=/home/server/.local/dingo-eureka ..
+bear --append -- make -j 80
+
+#Release
+cmake -DCMAKE_BUILD_TYPE=Release  -DTHIRD_PARTY_INSTALL_PATH=/home/server/.local/dingo-eureka ..
+bear --append -- make -j 80
+
+
+3. dingo-eureka
+git clone git@github.com:yuhaijun999/dingo-eureka.git
+git remote add zetyun  git@github.com:dingodb/dingo-eureka.git
+
+#debug
+cmake -DCMAKE_BUILD_TYPE=Debug ..
 bear --append -- make -j 40
 
-
-faiss
-
-
-
+#release
+cmake -DCMAKE_BUILD_TYPE=Release ..
+bear --append -- make -j 40
