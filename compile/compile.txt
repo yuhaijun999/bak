@@ -28,10 +28,10 @@ bear --append -- make -j 80
 git clone git@github.com:yuhaijun999/dingo-eureka.git
 git remote add zetyun  git@github.com:dingodb/dingo-eureka.git
 
-#debug
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+#debug 支持 dingo-store 的使用
+cmake -DWITH_BOOST=OFF -DWITH_LIBRADOS=OFF -DWITH_LIBUSRBIO=OFF  -DCMAKE_BUILD_TYPE=Debug  ..
 bear --append -- make -j 40
 
 #release
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DWITH_BOOST=OFF -DWITH_LIBRADOS=OFF -DWITH_LIBUSRBIO=OFF -DCMAKE_BUILD_TYPE=Release ..
 bear --append -- make -j 40
