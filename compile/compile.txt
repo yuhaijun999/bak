@@ -16,17 +16,20 @@ git clone git@github.com:yuhaijun999/dingo-sdk.git
 git remote add zetyun git@github.com:dingodb/dingo-sdk.git
 
 # debug
-cmake -DCMAKE_BUILD_TYPE=Debug  -DTHIRD_PARTY_INSTALL_PATH=/home/server/.local/dingo-eureka ..
+cmake -DCMAKE_BUILD_TYPE=Debug  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 bear --append -- make -j 80
 
 #Release
-cmake -DCMAKE_BUILD_TYPE=Release  -DTHIRD_PARTY_INSTALL_PATH=/home/server/.local/dingo-eureka ..
+cmake -DCMAKE_BUILD_TYPE=Release  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 bear --append -- make -j 80
 
 
 3. dingo-eureka
 git clone git@github.com:yuhaijun999/dingo-eureka.git
 git remote add zetyun  git@github.com:dingodb/dingo-eureka.git
+
+git submodule sync --recursive
+git submodule update  --init  --recursive
 
 #debug 支持 dingo-store 的使用
 cmake -DWITH_BOOST=OFF -DWITH_LIBRADOS=OFF -DWITH_LIBUSRBIO=OFF  -DCMAKE_BUILD_TYPE=Debug  ..
