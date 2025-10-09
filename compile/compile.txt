@@ -1,7 +1,13 @@
 
+export no_proxy=localhost,127.0.0.1
+export GRPC_DNS_RESOLVER=native
+unset https_proxy;unset http_proxy
+
 1.dingo-store
 git clone git@github.com:yuhaijun999/dingo-store.git
 git remote add zetyun git@github.com:dingodb/dingo-store.git
+
+source /opt/intel/oneapi/setvars.sh
 
 #debug
 # 推荐
