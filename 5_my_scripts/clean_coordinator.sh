@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+
+function clean_coordinator(){
+    local role_dir=$1
+    echo "role: ${role_dir}"
+
+    if [ -d ${role_dir}/data ]; then
+            rm  ${role_dir}/data/* -rf
+    else
+        mkdir -p ${role_dir}/data
+    fi
+
+
+    if [ -d ${role_dir}/log ] ; then
+        rm ${role_dir}/log/* -rf
+    else
+        mkdir -p ${role_dir}/log
+    fi
+
+    if [ -d ${role_dir}/rpc_data ] ; then
+        rm ${role_dir}/rpc_data -rf
+    fi
+
+    tree ${role_dir}
+}
+
+clean_coordinator coordinator1
+clean_coordinator coordinator2
+clean_coordinator coordinator3
+clean_coordinator coordinator4
+clean_coordinator coordinator5

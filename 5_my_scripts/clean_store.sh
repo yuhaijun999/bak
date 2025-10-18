@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+function clean_store(){
+    local role_dir=$1
+    echo "role: ${role_dir}"
+
+    if [ -d ${role_dir}/data ]; then
+        rm ${role_dir}/data/* -rf
+    else
+        mkdir -p ${role_dir}/data
+    fi
+
+
+    if [ -d ${role_dir}/log ] ; then
+        rm ${role_dir}/log/* -rf
+    else
+        mkdir -p ${role_dir}/log
+    fi
+
+
+    tree ${role_dir}
+
+}
+
+
+clean_store store1
+clean_store store2
+clean_store store3
+clean_store store4
+clean_store store5
