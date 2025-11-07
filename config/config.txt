@@ -1,0 +1,22 @@
+1. rocky8, centos8
+
+# root
+cat  /proc/sys/vm/max_map_count
+echo "655360" >  /proc/sys/vm/max_map_count
+
+
+# user
+ulimit -n 1048576
+ulimit -u 4194304
+ulimit -c unlimited
+
+
+# root
+echo "vm.overcommit_memory = 1" >>  /etc/sysctl.conf
+sysctl vm.overcommit_memory=1
+
+# root
+cat /sys/kernel/mm/transparent_hugepage/enabled
+echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+
+
