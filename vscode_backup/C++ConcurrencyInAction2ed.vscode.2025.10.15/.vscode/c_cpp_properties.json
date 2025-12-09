@@ -1,0 +1,32 @@
+{
+  "env": {
+    "myDefaultIncludePath": [],
+    "myCompilerPath": "/opt/rh/gcc-toolset-13/root/usr/bin/g++"
+  },
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/rh/gcc-toolset-13/root/usr/include/c++/13",
+        "/opt/rh/gcc-toolset-13/root/usr/include/c++/13/x86_64-redhat-linux",
+        "/opt/rh/gcc-toolset-13/root/usr/include",
+        "/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/include"
+      ],
+      "defines": [],
+      "compilerPath": "/opt/rh/gcc-toolset-13/root/usr/bin/g++",
+      "cStandard": "c17",
+      "cppStandard": "c++23",
+      "intelliSenseMode": "linux-gcc-x64",
+      "browse": {
+        "path": [
+          "${workspaceFolder}",
+          "/opt/rh/gcc-toolset-13/root/usr/include",
+          "/opt/rh/gcc-toolset-13/root/usr/include/c++/13"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}

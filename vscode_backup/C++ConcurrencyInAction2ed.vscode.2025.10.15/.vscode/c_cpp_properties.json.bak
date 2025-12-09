@@ -1,0 +1,21 @@
+{
+  "env": {
+    "myDefaultIncludePath": [],
+    "myCompilerPath": "/opt/rh/gcc-toolset-13/root/usr/bin/g++"
+  },
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "/opt/rh/gcc-toolset-13/root/usr/include/c++/13/**"
+      ],
+      "defines": [],
+      "compilerPath": "/opt/rh/gcc-toolset-13/root/usr/bin/g++",
+      "cStandard": "c17",
+      "cppStandard": "c++23",
+      "intelliSenseMode": "clang-x64",
+      "compileCommands": ""
+    }
+  ],
+  "version": 4
+}
