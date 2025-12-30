@@ -64,9 +64,37 @@ while IFS= read -r region_id; do
 
     line_count=$((line_count + 1))
 
+    output_store_ids_only=$(./dingodb_client --method=QueryRegion --id=${region_id} 2> /dev/null  | grep -w store_id | sed 's/^[[:space:]]*//' | sort | uniq | awk '{print $2}')
+
+    output_only=()
+    #echo "11111 : ${output_store_ids_only}"
+    while IFS= read -r id; do
+        #echo "处理ID: $id"
+        # 这里添加你的处理逻辑
+        output_only+=("$id")
+    done <<< "$output_store_ids_only"
+
+    #echo "output_only : ${output_only}"
+
     #echo "读取第 $line_count 行: region_id = $region_id"
+    #
     for i in "${!store_ids[@]}"; do
         #echo "$i store_id=${store_ids[$i]}, addr=${store_addrs[$i]}"
+
+        found=false
+
+	    for item in "${output_only[@]}"; do
+    	    if [[ "$item" == "${store_ids[$i]}" ]]; then
+        	    found=true
+        	    break
+    	    fi
+            #echo "item : ${item}"
+        done
+
+        if ! $found; then
+            continue
+        fi
+
         output=$(./dingodb_cli QueryRegionStatus --store_addrs="${store_addrs[$i]}"  --region_ids="${region_id}")
 
         has_state=0
@@ -80,6 +108,7 @@ while IFS= read -r region_id; do
             has_state=1
         else
             has_state=0
+            continue
         fi
 
         # -------------------------
