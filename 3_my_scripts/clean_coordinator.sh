@@ -23,6 +23,10 @@ function clean_coordinator(){
         rm ${role_dir}/rpc_data -rf
     fi
 
+    if [ -d ${role_dir}/rpc_data ] ; then
+        rm ${role_dir}/rpc_data -rf
+    fi
+
     tree ${role_dir}
 }
 

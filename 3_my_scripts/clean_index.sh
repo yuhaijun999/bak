@@ -18,6 +18,9 @@ function clean_store(){
         mkdir -p ${role_dir}/log
     fi
 
+    if [ -d ${role_dir}/rpc_data ] ; then
+        rm ${role_dir}/rpc_data -rf
+    fi
 
     tree ${role_dir}
 
