@@ -1,0 +1,75 @@
+1.172.30.14.11 rocky8
+
+server@dingo11 disk [main] $ df -hl
+Filesystem           Size  Used Avail Use% Mounted on
+devtmpfs             126G     0  126G   0% /dev
+tmpfs                126G     0  126G   0% /dev/shm
+tmpfs                126G   19M  126G   1% /run
+tmpfs                126G     0  126G   0% /sys/fs/cgroup
+/dev/mapper/rl-root   70G   56G   15G  79% /
+/dev/sda2           1014M  360M  655M  36% /boot
+/dev/sda1            599M  5.8M  594M   1% /boot/efi
+/dev/mapper/rl-home  855G  631G  225G  74% /home
+tmpfs                 26G   16K   26G   1% /run/user/1003
+/dev/nvme0n1         1.8T  1.4T  326G  82% /mnt/disk3
+
+server@dingo11 disk [main] $ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   931G  0 disk 
+├─sda1        8:1    0   600M  0 part /boot/efi
+├─sda2        8:2    0     1G  0 part /boot
+└─sda3        8:3    0 929.4G  0 part 
+  ├─rl-root 253:0    0    70G  0 lvm  /
+  ├─rl-swap 253:1    0     4G  0 lvm  
+  └─rl-home 253:2    0 855.4G  0 lvm  /home
+nvme1n1     259:0    0   1.8T  0 disk 
+nvme2n1     259:1    0   1.8T  0 disk 
+├─nvme2n1p1 259:2    0   1.5T  0 part 
+└─nvme2n1p2 259:3    0 278.9G  0 part 
+nvme3n1     259:4    0     4T  0 disk                  # 已坏 不可用
+nvme0n1     259:5    0   1.8T  0 disk /mnt/disk3
+
+
+
+# 其中挂载 1.8T /dev/nvme0n1
+sudo mount -t ext4  /dev/nvme0n1 /mnt/disk3
+
+
+
+2.172.30.14.14 rocky8 
+
+server@dingo14 ~ $ df -hl
+Filesystem                 Size  Used Avail Use% Mounted on
+devtmpfs                   126G     0  126G   0% /dev
+tmpfs                      126G     0  126G   0% /dev/shm
+tmpfs                      126G   35M  126G   1% /run
+tmpfs                      126G     0  126G   0% /sys/fs/cgroup
+/dev/mapper/rl-root         70G   40G   31G  56% /
+/dev/sda2                 1014M  290M  725M  29% /boot
+/dev/sda1                  599M  5.8M  594M   1% /boot/efi
+/dev/mapper/rl-home        855G  696G  160G  82% /home
+tmpfs                       26G   16K   26G   1% /run/user/1004
+/dev/mapper/dingo-dingolv  5.4T  2.8T  2.4T  54% /mnt/disk1
+
+
+server@dingo14 ~ $ lsblk
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0   931G  0 disk 
+├─sda1            8:1    0   600M  0 part /boot/efi
+├─sda2            8:2    0     1G  0 part /boot
+└─sda3            8:3    0 929.4G  0 part 
+  ├─rl-root     253:0    0    70G  0 lvm  /
+  ├─rl-swap     253:1    0     4G  0 lvm  [SWAP]
+  └─rl-home     253:2    0 855.4G  0 lvm  /home
+nvme1n1         259:0    0   1.8T  0 disk 
+└─dingo-dingolv 253:3    0   5.5T  0 lvm  /mnt/disk1
+nvme2n1         259:1    0   1.8T  0 disk 
+└─dingo-dingolv 253:3    0   5.5T  0 lvm  /mnt/disk1
+nvme3n1         259:2    0     4T  0 disk 
+nvme0n1         259:3    0   1.8T  0 disk 
+└─dingo-dingolv 253:3    0   5.5T  0 lvm  /mnt/disk1
+
+其中挂载 5.5T 盘命令
+sudo mount /dev/dingo/dingolv /mnt/disk1
+
+
