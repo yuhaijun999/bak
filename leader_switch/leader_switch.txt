@@ -1,0 +1,27 @@
+常用脚本备注：
+
+./dingodb_cli GetJobList
+
+ps -elf | grep dingodb_bench
+
+kill -9 1852712
+
+
+iostat -dx 1
+
+./dingodb_br --br_type=tool --br_tool_type=client --br_client_method=DisableBalance
+
+
+
+cd /home/server/work/dingo-store/
+git diff | (cd /mnt/disk3/yuhaijun/dingo-store && git apply)
+
+
+cd /mnt/disk3/yuhaijun/dingo-store/build
+# 删除某个文件夹下除了bin.bak 目录的文件夹
+find ./ -mindepth 1 -maxdepth 1 ! -name bin.bak -exec rm -rf {} +
+
+
+./dingodb_bench --benchmark=fillseq  --batch_threads=50 --batch_threads_sleep_ms=10000 --coordinator_interaction_delay_ms=1000 --req_num=10000000000000  --is_single_region_txn=true --batch_size=1 --key_size=1024 --value_size=41943040  --concurrency=10 --region_num=10 --is_clean_region=false
+
+
