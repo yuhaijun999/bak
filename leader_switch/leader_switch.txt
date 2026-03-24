@@ -22,6 +22,16 @@ cd /mnt/disk3/yuhaijun/dingo-store/build
 find ./ -mindepth 1 -maxdepth 1 ! -name bin.bak -exec rm -rf {} +
 
 
+# 10 region  key=1K value=40M  3 副本
 ./dingodb_bench --benchmark=fillseq  --batch_threads=50 --batch_threads_sleep_ms=10000 --coordinator_interaction_delay_ms=1000 --req_num=10000000000000  --is_single_region_txn=true --batch_size=1 --key_size=1024 --value_size=41943040  --concurrency=10 --region_num=10 --is_clean_region=false
 
 
+# 10 region  key=4K value=256K 3 副本
+./dingodb_bench --benchmark=fillseq  --batch_threads=50 --batch_threads_sleep_ms=10000 --coordinator_interaction_delay_ms=1000 --req_num=10000000000000  --is_single_region_txn=true --batch_size=1 --key_size=4096 --value_size=262144  --concurrency=10 --region_num=10 --is_clean_region=false
+
+
+# 1 region  key=1K value=40M 3副本
+./dingodb_bench --benchmark=fillseq  --batch_threads=50 --batch_threads_sleep_ms=10000 --coordinator_interaction_delay_ms=1000 --req_num=10000000000000  --is_single_region_txn=true --batch_size=1 --key_size=1024 --value_size=41943040  --concurrency=10 --region_num=1 --is_clean_region=false
+
+# 1 region  key=1K value=40M 1副本
+./dingodb_bench --benchmark=fillseq  --batch_threads=50 --batch_threads_sleep_ms=10000 --coordinator_interaction_delay_ms=1000 --req_num=10000000000000  --is_single_region_txn=true --batch_size=1 --key_size=1024 --value_size=41943040  --concurrency=10 --region_num=1 --is_clean_region=false --replica=1
