@@ -1,0 +1,16 @@
+
+dynamo
+
+https://github.com/ai-dynamo/dynamo
+
+git clone https://github.com/ai-dynamo/dynamo.git
+
+v1.1.0
+wget https://github.com/ai-dynamo/dynamo/archive/refs/tags/v1.1.0.tar.gz
+mv v1.1.0.tar.gz dynamo-v1.1.0.tar.gz
+tar -zxvf dynamo-v1.1.0.tar.gz
+
+
+git clone git@gitlab.datacanvas.com:yuhj/dynamo-analysis.git
+git clone git@gitlab.datacanvas.com:mengsz/dynamo-analysis.git
+

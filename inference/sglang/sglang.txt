@@ -1,0 +1,10 @@
+SGLang 的 GitHub 地址是：https://github.com/sgl-project/sglang
+
+SGLang 是一个专为大型语言模型和视觉语言模型设计的高性能服务框架，目前在 GitHub 上已获得超过 1.9 万 Stars。
+
+其他相关资源也一并提供给你：
+
+官方文档：https://docs.sglang.ai
+
+项目官网：https://sglang.ai
+

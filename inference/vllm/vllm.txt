@@ -1,0 +1,11 @@
+vLLM 的 GitHub 地址是：https://github.com/vllm-project/vllm
+
+这是一个高性能、易使用的 LLM 推理与服务框架，目前该项目在 GitHub 上已获得 超过 5.9 万 Stars 。
+
+其他相关资源也一并提供给你：
+
+官方网站：https://vllm.ai
+
+官方文档：https://docs.vllm.ai
+
+你可以通过以上链接查阅源码、提交 issue 或阅读技术文档。
