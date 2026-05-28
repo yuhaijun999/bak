@@ -1,0 +1,22 @@
+{
+    /********
+   * LLDB *
+   ********/
+    // LLDB 指令自动补全
+    "lldb.commandCompletions": true,
+    // LLDB 指针显示解引用内容
+    "lldb.dereferencePointers": true,
+    // LLDB 鼠标悬停在变量上时预览变量值
+    "lldb.evaluateForHovers": true,
+    // LLDB 监视表达式的默认类型
+    "lldb.launch.expressions": "simple",
+    // LLDB 不显示汇编代码
+    "lldb.showDisassembly": "never",
+    // LLDB 生成更详细的日志
+    "lldb.verboseLogging": true,
+    "files.associations": {
+        "*.ipp": "cpp",
+        "istream": "cpp",
+        "*.tcc": "cpp"
+    },
+}
