@@ -1,0 +1,6 @@
+# id name result error_code error_msg
+# 执行时间: 2026-05-28 16:01:58
+# ========================================
+80010 Benchmark_1776752426807_1[80010] NOT_EXIST EREGION_NOT_FOUND DropRegionPermanently region not exists, id=80010
+80011 Benchmark_1776752426807_1[80011] NOT_EXIST EREGION_NOT_FOUND DropRegionPermanently region not exists, id=80011
+80015 Benchmark_1776752426807_1[80015] NOT_EXIST EREGION_NOT_FOUND DropRegionPermanently region not exists, id=80015
