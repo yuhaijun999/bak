@@ -9,3 +9,6 @@ vLLM 的 GitHub 地址是：https://github.com/vllm-project/vllm
 官方文档：https://docs.vllm.ai
 
 你可以通过以上链接查阅源码、提交 issue 或阅读技术文档。
+
+
+git clone git@github.com:vllm-project/vllm.git
