@@ -55,18 +55,24 @@ git remote add zetyun git@github.com:dingodb/dingo-sdk.git
 # debug
 cmake -DCMAKE_BUILD_TYPE=Debug  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 bear --append -- make -j 80
+make install
 
 #Release
 cmake -DCMAKE_BUILD_TYPE=Release  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 bear --append -- make -j 80
+make install
 
 #RelWithDebInfo
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 bear --append -- make -j 80
+make install
 
 #RelWithDebInfo 发布
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DTHIRD_PARTY_INSTALL_PATH=$HOME/.local/dingo-eureka ..
 make -j 80
+make install
+
+
 
 3. dingo-eureka
 git clone git@github.com:yuhaijun999/dingo-eureka.git
@@ -89,6 +95,10 @@ cmake -DWITH_BOOST=ON -DWITH_LIBRADOS=OFF -DWITH_LIBUSRBIO=OFF -DCMAKE_BUILD_TYP
 cmake -DWITH_BOOST=OFF -DWITH_LIBRADOS=OFF -DWITH_LIBUSRBIO=OFF -DCMAKE_BUILD_TYPE=Release ..
 bear --append -- make -j 40
 
+#RelWithDebInfo for dingo-fs and  dingo-store
+# 推荐
+cmake  -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+bear --append -- make -j 40
 
 #RelWithDebInfo
 # 推荐
@@ -106,3 +116,28 @@ make -j 40
 
 4. bak
 git clone git@github.com:yuhaijun999/bak.git
+
+
+5. dingofs
+git clone git@github.com:yuhaijun999/dingofs.git
+git remote add zetyun git@github.com:dingodb/dingofs.git
+
+#debug
+# 推荐
+cmake  -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+bear --append -- make -j 40
+
+#release
+# 推荐
+cmake  -DCMAKE_BUILD_TYPE=Release  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+bear --append -- make -j 40
+
+#RelWithDebInfo
+# 推荐
+cmake  -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+bear --append -- make -j 40
+
+#RelWithDebInfo 发布
+# 推荐
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo  ..
+make -j 40
