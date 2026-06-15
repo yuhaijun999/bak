@@ -3,7 +3,7 @@ export no_proxy=localhost,127.0.0.1
 export GRPC_DNS_RESOLVER=native
 unset https_proxy;unset http_proxy
 
-1.dingo-store
+1.dingo-store ******************************************************************
 git clone git@github.com:yuhaijun999/dingo-store.git
 git remote add zetyun git@github.com:dingodb/dingo-store.git
 
@@ -38,7 +38,6 @@ cmake -DWITH_DISKANN=ON -DWITH_MKL=ON -DDISKANN_DEPEND_ON_SYSTEM=ON -DCMAKE_BUIL
 make -j 80
 
 
-
 补充 ##### 是否启用 document 加速. 默认启用
 # 启用
 cmake -DWITH_DISKANN=ON -DWITH_MKL=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DTHIRD_PARTY_BUILD_TYPE=RelWithDebInfo -DBUILD_UNIT_TESTS=ON  -DBRPC_ENABLE_CPU_PROFILER=OFF -DDINGO_BUILD_STATIC=OFF -DCMAKE_CXX_STANDARD=17  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DWITH_VECTOR_INDEX_USE_DOCUMENT=ON ..
@@ -48,7 +47,7 @@ cmake -DWITH_DISKANN=ON -DWITH_MKL=ON  -DCMAKE_BUILD_TYPE=RelWithDebInfo -DTHIRD
 
 
 
-2. dingo-sdk
+2. dingo-sdk ***************************************************************************
 git clone git@github.com:yuhaijun999/dingo-sdk.git
 git remote add zetyun git@github.com:dingodb/dingo-sdk.git
 
@@ -74,7 +73,7 @@ make install
 
 
 
-3. dingo-eureka
+3. dingo-eureka   ********************************************************************************
 git clone git@github.com:yuhaijun999/dingo-eureka.git
 git remote add zetyun  git@github.com:dingodb/dingo-eureka.git
 
@@ -118,9 +117,11 @@ make -j 40
 git clone git@github.com:yuhaijun999/bak.git
 
 
-5. dingofs
+5. dingofs   *************************************************************************************
 git clone git@github.com:yuhaijun999/dingofs.git
 git remote add zetyun git@github.com:dingodb/dingofs.git
+
+/home/server/app/python -m pip install --user cython
 
 #debug
 # 推荐
@@ -129,12 +130,12 @@ bear --append -- make -j 40
 
 #release
 # 推荐
-cmake  -DCMAKE_BUILD_TYPE=Release  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+cmake  -DCMAKE_BUILD_TYPE=Release  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 bear --append -- make -j 40
 
 #RelWithDebInfo
 # 推荐
-cmake  -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+cmake  -DCMAKE_BUILD_TYPE=RelWithDebInfo  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 bear --append -- make -j 40
 
 #RelWithDebInfo 发布
