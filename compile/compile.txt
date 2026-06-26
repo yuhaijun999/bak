@@ -123,6 +123,8 @@ git remote add zetyun git@github.com:dingodb/dingofs.git
 
 /home/server/app/python -m pip install --user cython
 
+git submodule update --init --recursive
+
 #debug
 # 推荐
 cmake  -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
@@ -142,3 +144,8 @@ bear --append -- make -j 40
 # 推荐
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo  ..
 make -j 40
+
+6. dfkv ***********************************************************************************************
+cmake -S . -B build            # add -DDFKV_STATIC_LIBSTDCXX=ON for portable binaries
+cmake --build build -j
+ctest --test-dir build --output-on-failure   # C++ gtests + the Python plugin test
