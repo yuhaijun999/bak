@@ -8,5 +8,6 @@ SGLang 是一个专为大型语言模型和视觉语言模型设计的高性能�
 
 项目官网：https://sglang.ai
 
+中文网站文档 : https://sglang.org/zh/
 
 git clone git@github.com:sgl-project/sglang.git

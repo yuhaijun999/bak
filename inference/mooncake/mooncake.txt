@@ -1,0 +1,5 @@
+mooncake 的 GitHub 地址是：https://github.com/kvcache-ai/Mooncake
+
+官方文档：https://kvcache-ai.github.io/Mooncake/
+
+git clone git@github.com:kvcache-ai/Mooncake.git
