@@ -1,6 +1,9 @@
 DingoDB Region 状态检查脚本说明
 ================================
 
+注意：本目录中的脚本使用 Bash 语法，请使用 `bash` 或直接使用可执行脚本路径执行，
+不要使用 `sh` 强制解释 `exec_region_is_normal.sh`。
+
 一、脚本说明
 
 1. exec_get_store_map.sh
@@ -36,10 +39,15 @@ DingoDB Region 状态检查脚本说明
        exec_get_store_map.txt
        exec_get_region_map.txt
 
-   脚本会根据 Region 的 Leader ID 找到对应 Store 的 Type，然后检查相同
-   Type 的所有 Store。
+   脚本会根据 Region 的 Leader ID 找到 Leader 的地址，先对 Leader 执行一次
+   查询。然后从 Leader 返回结果的 `peers` 和 `server_location` 中获取该
+   Region 的实际副本地址。
 
-   对每个 Store 执行：
+   Leader 已经查询过，因此不会重复查询 Leader，只会继续查询其余 peer。
+   每个 Region 的副本数量可以是 1 个、2 个或 3 个，脚本会根据实际返回的
+   peers 动态检查。
+
+   对 Leader 和其余每个 peer 执行：
 
        ./dingodb_cli QueryRegionStatus \
            --store_addrs ip:port \
@@ -49,6 +57,10 @@ DingoDB Region 状态检查脚本说明
 
    使用 `--info` 查看正常检查结果：
 
+       bash exec_region_is_normal.sh --info
+
+   或者：
+
        ./exec_region_is_normal.sh --info
 
    正常输出示例：
@@ -57,11 +69,12 @@ DingoDB Region 状态检查脚本说明
        INFO region_id=80001 store_id=30002 address=172.30.14.14:30002 type=NODE_TYPE_STORE state=NORMAL
        INFO region_id=80001 store_id=30003 address=172.30.14.14:30003 type=NODE_TYPE_STORE state=NORMAL leader_id=30003
 
-   其中只有实际 Leader 对应的 Store 输出 `leader_id`。
+   其中只有实际 Leader 对应的 Store 输出 `leader_id`。Store 的 Type 会
+   根据 peer 的 Store ID 反查 Store Map；如果找不到，则显示为 `UNKNOWN`。
 
    使用 `--debug` 查看详细查询过程：
 
-       ./exec_region_is_normal.sh --debug
+       bash exec_region_is_normal.sh --debug
 
    检查结果会保存到：
 
@@ -86,10 +99,6 @@ DingoDB Region 状态检查脚本说明
    在当前 bin 目录执行：
 
        ./wrap_region_normal.sh
-
-   也可以使用 shell 执行：
-
-       sh wrap_region_normal.sh
 
 
 三、错误输出示例

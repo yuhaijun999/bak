@@ -86,6 +86,72 @@ total_checks=0
 normal_count=0
 error_count=0
 
+run_query() {
+    local address="$1"
+    local region_id="$2"
+
+    debug_log "query: ./dingodb_cli QueryRegionStatus --store_addrs $address --region_ids $region_id"
+
+    query_status=0
+    if query_output="$(./dingodb_cli QueryRegionStatus \
+        --store_addrs "$address" \
+        --region_ids "$region_id" 2>&1)"; then
+        query_status=0
+    else
+        query_status=$?
+    fi
+
+    if ((DEBUG)); then
+        while IFS= read -r output_line; do
+            printf '[DEBUG]   %s\n' "$output_line" | tee -a "$RESULT_FILE"
+        done <<< "$query_output"
+    fi
+
+    state="$(awk '/^[[:space:]]*state:[[:space:]]*/ { print $2; exit }' <<< "$query_output")"
+    detected_leader_id="$(awk '/^[[:space:]]*leader_id:[[:space:]]*/ { print $2; exit }' <<< "$query_output")"
+}
+
+parse_peers() {
+    awk '
+        function clean(value) {
+            gsub(/"/, "", value)
+            return value
+        }
+
+        /^[[:space:]]*peers[[:space:]]*\{/ {
+            in_peer = 1
+            in_server_location = 0
+            peer_id = ""
+            host = ""
+            port = ""
+            next
+        }
+
+        in_peer && /^[[:space:]]*store_id:/ {
+            peer_id = clean($2)
+            next
+        }
+
+        in_peer && /^[[:space:]]*server_location[[:space:]]*\{/ {
+            in_server_location = 1
+            next
+        }
+
+        in_server_location && /^[[:space:]]*host:/ {
+            host = clean($2)
+            next
+        }
+
+        in_server_location && /^[[:space:]]*port:/ {
+            port = clean($2)
+            if (peer_id != "" && host != "" && port != "") {
+                print peer_id "\t" host ":" port
+            }
+            in_server_location = 0
+        }
+    ' <<< "$query_output"
+}
+
 while IFS= read -r line; do
     if [[ ! "$line" =~ ^[[:space:]]*id=([0-9]+).*leader=([0-9]+) ]]; then
         continue
@@ -104,54 +170,59 @@ while IFS= read -r line; do
 
     debug_log "region_id=$region_id leader_id=$leader_id type=$leader_type"
 
-    for store_id in "${store_ids[@]}"; do
-        [[ "${store_type_by_id[$store_id]-}" == "$leader_type" ]] || continue
+    leader_address="${store_address_by_id[$leader_id]-}"
+    if [[ -z "$leader_address" ]]; then
+        ((error_count += 1))
+        log "ERROR region_id=$region_id leader_id=$leader_id store_id=$leader_id address=UNKNOWN type=$leader_type state=UNKNOWN reason=leader_address_not_found"
+        continue
+    fi
 
-        address="${store_address_by_id[$store_id]-}"
-        if [[ -z "$address" ]]; then
-            ((error_count += 1))
-            log "ERROR region_id=$region_id leader_id=$leader_id store_id=$store_id address=UNKNOWN type=$leader_type state=UNKNOWN reason=store_address_not_found"
-            continue
+    # Query the leader once. Its response also provides the actual peer list.
+    ((total_checks += 1))
+    run_query "$leader_address" "$region_id"
+
+    if ((query_status != 0)); then
+        ((error_count += 1))
+        log "ERROR region_id=$region_id leader_id=$leader_id store_id=$leader_id address=$leader_address type=$leader_type state=${state:-UNKNOWN} reason=query_failed exit_code=$query_status"
+    elif [[ "$state" == "NORMAL" ]]; then
+        ((normal_count += 1))
+        if ((INFO)); then
+            log "INFO region_id=$region_id store_id=$leader_id address=$leader_address type=$leader_type state=$state leader_id=${detected_leader_id:-$leader_id}"
         fi
+        debug_log "OK region_id=$region_id store_id=$leader_id address=$leader_address type=$leader_type state=NORMAL leader=true"
+    else
+        ((error_count += 1))
+        log "ERROR region_id=$region_id leader_id=$leader_id store_id=$leader_id address=$leader_address type=$leader_type state=${state:-UNKNOWN} expected=NORMAL"
+    fi
 
+    # The leader query has already covered the leader. Query only the remaining
+    # peers returned by that response; a single-replica region ends here.
+    while IFS=$'\t' read -r peer_id peer_address; do
+        [[ -n "${peer_id:-}" && -n "${peer_address:-}" ]] || continue
+        [[ "$peer_id" == "$leader_id" || "$peer_address" == "$leader_address" ]] && continue
+
+        peer_type="${store_type_by_id[$peer_id]-UNKNOWN}"
         ((total_checks += 1))
-        debug_log "query: ./dingodb_cli QueryRegionStatus --store_addrs $address --region_ids $region_id"
+        run_query "$peer_address" "$region_id"
 
-        query_status=0
-        if query_output="$(./dingodb_cli QueryRegionStatus \
-            --store_addrs "$address" \
-            --region_ids "$region_id" 2>&1)"; then
-            query_status=0
-        else
-            query_status=$?
-        fi
-
-        if ((DEBUG)); then
-            while IFS= read -r output_line; do
-                printf '[DEBUG]   %s\n' "$output_line" | tee -a "$RESULT_FILE"
-            done <<< "$query_output"
-        fi
-
-        state="$(awk '/^[[:space:]]*state:[[:space:]]*/ { print $2; exit }' <<< "$query_output")"
-        detected_leader_id="$(awk '/^[[:space:]]*leader_id:[[:space:]]*/ { print $2; exit }' <<< "$query_output")"
         if ((query_status != 0)); then
             ((error_count += 1))
-            log "ERROR region_id=$region_id leader_id=$leader_id store_id=$store_id address=$address type=$leader_type state=${state:-UNKNOWN} reason=query_failed exit_code=$query_status"
+            log "ERROR region_id=$region_id leader_id=$leader_id store_id=$peer_id address=$peer_address type=$peer_type state=${state:-UNKNOWN} reason=query_failed exit_code=$query_status"
         elif [[ "$state" == "NORMAL" ]]; then
             ((normal_count += 1))
             if ((INFO)); then
-                if [[ "$detected_leader_id" == "$store_id" ]]; then
-                    log "INFO region_id=$region_id store_id=$store_id address=$address type=$leader_type state=$state leader_id=$detected_leader_id"
+                if [[ "$detected_leader_id" == "$peer_id" ]]; then
+                    log "INFO region_id=$region_id store_id=$peer_id address=$peer_address type=$peer_type state=$state leader_id=$detected_leader_id"
                 else
-                    log "INFO region_id=$region_id store_id=$store_id address=$address type=$leader_type state=$state"
+                    log "INFO region_id=$region_id store_id=$peer_id address=$peer_address type=$peer_type state=$state"
                 fi
             fi
-            debug_log "OK region_id=$region_id store_id=$store_id address=$address type=$leader_type state=NORMAL"
+            debug_log "OK region_id=$region_id store_id=$peer_id address=$peer_address type=$peer_type state=NORMAL"
         else
             ((error_count += 1))
-            log "ERROR region_id=$region_id leader_id=$leader_id store_id=$store_id address=$address type=$leader_type state=${state:-UNKNOWN} expected=NORMAL"
+            log "ERROR region_id=$region_id leader_id=$leader_id store_id=$peer_id address=$peer_address type=$peer_type state=${state:-UNKNOWN} expected=NORMAL"
         fi
-    done
+    done < <(parse_peers)
 
     if ((INFO)); then
         printf '\n' | tee -a "$RESULT_FILE"
