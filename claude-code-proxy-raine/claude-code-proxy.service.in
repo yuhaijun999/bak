@@ -1,0 +1,30 @@
+[Unit]
+Description=Claude Code Proxy
+Documentation=https://github.com/raine/claude-code-proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@SERVICE_USER@
+WorkingDirectory=@SERVICE_HOME@
+Environment=HOME=@SERVICE_HOME@
+Environment="HTTP_PROXY=@PROXY_URL@"
+Environment="HTTPS_PROXY=@PROXY_URL@"
+Environment="NO_PROXY=@NO_PROXY_LIST@"
+UMask=0077
+ExecStart="@PROXY_BIN@" serve --no-monitor
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target
