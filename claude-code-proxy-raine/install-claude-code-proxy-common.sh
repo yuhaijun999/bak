@@ -62,6 +62,10 @@ runuser -u "$SERVICE_USER" -- test -x "$PROXY_BIN" || fail "服务用户 $SERVIC
 runuser -u "$SERVICE_USER" -- "$PROXY_BIN" --version || fail '代理程序无法在本机运行；Rocky 8 若提示缺少 GLIBC 版本，请先在 Rocky 8 上从源码编译。'
 [[ ! -L $UNIT_PATH && ! -L $MANAGED_DROPIN ]] || fail '目标 unit 或托管配置是符号链接，请手动检查。'
 
+if [[ $EXPECTED_OS == rocky ]]; then
+    configure_proxy_selinux "$PROXY_BIN"
+fi
+
 TMP_UNIT=$(mktemp "${UNIT_PATH}.XXXXXX")
 TMP_DROPIN=
 cleanup() {

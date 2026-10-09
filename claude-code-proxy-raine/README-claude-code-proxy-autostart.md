@@ -56,6 +56,8 @@ sudo env CCP_NO_PROXY=localhost,127.0.0.1,internal.example.com ./install-claude-
 
 脚本**可以重复运行**：已有 unit 和脚本管理的 drop-in 会先分别备份，再覆盖安装；备份路径会打印在输出中。更新后执行 `daemon-reload`、启用服务、重启服务并检查其保持运行。脚本不会删除用户自己建立的其他 drop-in；新的 `zz-claude-code-proxy-managed.conf` 会覆盖旧版说明文档创建的 `override.conf`、`20-no-monitor.conf` 和 `30-network-proxy.conf` 中相同的项目，使指定的用户、HOME、二进制和代理地址真正生效。若还存在字母顺序更靠后的自定义 drop-in，请用 `systemctl cat claude-code-proxy` 检查最终配置。出现错误时，先看日志；备份不会自动恢复。
 
+Rocky 8 安装入口会在启动服务前处理 SELinux：如果 SELinux 已启用，为指定的代理程序执行 `semanage fcontext -a -t bin_t` 和 `restorecon -v`，避免普通用户文件标签导致 systemd 报 `203/EXEC`。规则支持重复安装，也适用于自定义程序路径；SELinux 已禁用时跳过。若缺少 `semanage`，先执行 `sudo dnf install -y policycoreutils-python-utils`，再重新运行安装脚本。
+
 服务采用 `claude-code-proxy serve --no-monitor`，由 systemd 管理、在失败时重启。网络代理地址会保存在可读的 unit 中；**不要把用户名或密码写入代理 URL**。需要带凭据的代理时，请另外使用访问受限的环境文件，不要通过此脚本传递密码。
 
 ## 常用管理命令
