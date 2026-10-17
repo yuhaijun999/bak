@@ -112,7 +112,7 @@ TMP_DROPIN=$(mktemp "${MANAGED_DROPIN}.XXXXXX")
     printf '[Service]\n'
     printf 'User=%s\nWorkingDirectory=%s\nEnvironment=HOME=%s\n' "$SERVICE_USER" "$SERVICE_HOME" "$SERVICE_HOME"
     printf 'Environment="HTTP_PROXY=%s"\nEnvironment="HTTPS_PROXY=%s"\n' "$PROXY_URL" "$PROXY_URL"
-    printf 'Environment="NO_PROXY=%s"\n' "$NO_PROXY_LIST"
+    printf 'Environment="NO_PROXY=%s"\nEnvironment="no_proxy=%s"\n' "$NO_PROXY_LIST" "$NO_PROXY_LIST"
     printf 'ExecStart=\nExecStart="%s" "%s" "%s"\n' "$LAUNCHER_PATH" "$PROXY_BIN" "$PROXY_URL"
 } > "$TMP_DROPIN"
 

@@ -7,6 +7,11 @@ if ! command -v claude >/dev/null 2>&1; then
     exit 127
 fi
 
+# 本地 Claude Code Proxy 请求必须直连；兼容大小写代理环境变量。
+local_no_proxy="localhost,127.0.0.1,server.teleport.zetyun.cn,::1"
+export NO_PROXY="${NO_PROXY:+${NO_PROXY},}${no_proxy:+${no_proxy},}${local_no_proxy}"
+export no_proxy="$NO_PROXY"
+
 export ANTHROPIC_BASE_URL='http://127.0.0.1:18765'
 export ANTHROPIC_AUTH_TOKEN='unused'
 export ANTHROPIC_MODEL='gpt-6-sol[1m]'

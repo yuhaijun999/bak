@@ -12,6 +12,7 @@ Environment=HOME=@SERVICE_HOME@
 Environment="HTTP_PROXY=@PROXY_URL@"
 Environment="HTTPS_PROXY=@PROXY_URL@"
 Environment="NO_PROXY=@NO_PROXY_LIST@"
+Environment="no_proxy=@NO_PROXY_LIST@"
 UMask=0077
 ExecStart="@LAUNCHER_PATH@" "@PROXY_BIN@" "@PROXY_URL@"
 Restart=on-failure
