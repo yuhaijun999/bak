@@ -41,16 +41,12 @@ command -v systemctl >/dev/null 2>&1 || fail '未找到 systemctl。'
 [[ -r $LAUNCHER_SOURCE ]] || fail "找不到启动器: $LAUNCHER_SOURCE"
 
 SERVICE_USER=${1:-server}
-PROXY_BIN=${2:-"/home/${SERVICE_USER}/.local/bin/claude-code-proxy"}
+PROXY_BIN=${2:-}
 PROXY_URL=${3:-$DEFAULT_PROXY_URL}
+[[ $SERVICE_USER =~ ^[a-z_][a-z0-9_-]*$ ]] || fail '服务用户名格式无效。'
 if [[ -t 0 && $# -eq 0 ]]; then
     read -r -p "服务用户 [$SERVICE_USER]: " input || input=
     SERVICE_USER=${input:-$SERVICE_USER}
-    PROXY_BIN="/home/${SERVICE_USER}/.local/bin/claude-code-proxy"
-fi
-if [[ -t 0 && $# -lt 2 ]]; then
-    read -r -p "代理路径 [$PROXY_BIN]: " input || input=
-    PROXY_BIN=${input:-$PROXY_BIN}
 fi
 if [[ -t 0 && $# -lt 3 ]]; then
     printf '出站代理地址选项:\n'
@@ -68,8 +64,6 @@ if [[ -t 0 && $# -lt 3 ]]; then
     esac
 fi
 
-[[ $SERVICE_USER =~ ^[a-z_][a-z0-9_-]*$ ]] || fail '服务用户名格式无效。'
-[[ $PROXY_BIN =~ ^/[A-Za-z0-9_./+-]+$ ]] || fail '代理路径必须是绝对路径，且不能包含空格或特殊字符。'
 [[ $PROXY_URL == auto || $PROXY_URL =~ ^https?://[A-Za-z0-9.-]+:[0-9]{1,5}$ ]] || fail '代理 URL 必须为 auto，或无凭据的 http(s)://主机:端口。'
 [[ $NO_PROXY_LIST =~ ^[A-Za-z0-9.,:*/_-]+$ ]] || fail 'CCP_NO_PROXY 包含不支持的字符。'
 
@@ -77,6 +71,12 @@ PASSWD_ENTRY=$(getent passwd "$SERVICE_USER") || fail "系统用户不存在: $S
 IFS=: read -r _ _ SERVICE_UID _ _ SERVICE_HOME _ <<< "$PASSWD_ENTRY"
 [[ $SERVICE_UID =~ ^[0-9]+$ && $SERVICE_UID != 0 ]] || fail '不允许以 root 运行代理服务。'
 [[ $SERVICE_HOME =~ ^/[A-Za-z0-9_./+-]+$ && -d $SERVICE_HOME ]] || fail "服务用户的 HOME 无效或不存在: $SERVICE_HOME"
+PROXY_BIN=${PROXY_BIN:-"${SERVICE_HOME}/.local/bin/claude-code-proxy"}
+if [[ -t 0 && $# -lt 2 ]]; then
+    read -r -p "代理路径 [$PROXY_BIN]: " input || input=
+    PROXY_BIN=${input:-$PROXY_BIN}
+fi
+[[ $PROXY_BIN =~ ^/[A-Za-z0-9_./+-]+$ ]] || fail '代理路径必须是绝对路径，且不能包含空格或特殊字符。'
 runuser -u "$SERVICE_USER" -- test -x "$SERVICE_HOME" || fail "服务用户无法进入 HOME: $SERVICE_HOME"
 runuser -u "$SERVICE_USER" -- test -x "$PROXY_BIN" || fail "服务用户 $SERVICE_USER 无法执行: $PROXY_BIN"
 runuser -u "$SERVICE_USER" -- "$PROXY_BIN" --version || fail '代理程序无法在本机运行；Rocky 8 若提示缺少 GLIBC 版本，请先在 Rocky 8 上从源码编译。'
